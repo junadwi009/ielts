@@ -1,0 +1,239 @@
+"""Repository facade — Data layer only.
+
+All methods open a short-lived session via self._sf(), commit writes,
+and return plain dicts or detached ORM objects.  No business logic here.
+"""
+
+import random
+from datetime import datetime, timezone
+
+from sqlalchemy import select
+
+from .models import (
+    GeneratedSet,
+    Milestone,
+    PlacementAttempt,
+    PlacementCombo,
+    PlacementItem,
+    Program,
+    SkillLevel,
+    UserProfile,
+    now,
+)
+
+
+class Repository:
+    def __init__(self, session_factory):
+        self._sf = session_factory
+
+    # ── User ──────────────────────────────────────────────────────────────────
+
+    def create_user(
+        self,
+        name: str,
+        goal: str,
+        target_band: float,
+        skill_targets: dict,
+    ) -> UserProfile:
+        """Insert a new UserProfile and return the detached object (with .id)."""
+        with self._sf() as s:
+            u = UserProfile(
+                name=name,
+                goal=goal,
+                target_band=target_band,
+                skill_targets=skill_targets,
+            )
+            s.add(u)
+            s.commit()
+            s.refresh(u)
+            s.expunge(u)
+        return u
+
+    def get_user(self) -> UserProfile | None:
+        """Return the most recently created UserProfile, or None."""
+        with self._sf() as s:
+            row = (
+                s.execute(
+                    select(UserProfile).order_by(UserProfile.id.desc()).limit(1)
+                )
+                .scalars()
+                .first()
+            )
+            if row is None:
+                return None
+            s.refresh(row)
+            s.expunge(row)
+        return row
+
+    # ── Skill levels ─────────────────────────────────────────────────────────
+
+    def set_skill_level(self, user_id: int, skill: str, band: str) -> None:
+        """UPSERT: update band+updated_at if row exists, else insert."""
+        with self._sf() as s:
+            existing = (
+                s.execute(
+                    select(SkillLevel).where(
+                        SkillLevel.user_id == user_id,
+                        SkillLevel.skill == skill,
+                    )
+                )
+                .scalars()
+                .first()
+            )
+            if existing:
+                existing.band = band
+                existing.updated_at = datetime.now(timezone.utc)
+            else:
+                s.add(SkillLevel(user_id=user_id, skill=skill, band=band))
+            s.commit()
+
+    def get_skill_levels(self, user_id: int) -> list[tuple[str, str]]:
+        """Return list of (skill, band) for the user."""
+        with self._sf() as s:
+            rows = (
+                s.execute(
+                    select(SkillLevel).where(SkillLevel.user_id == user_id)
+                )
+                .scalars()
+                .all()
+            )
+            return [(r.skill, r.band) for r in rows]
+
+    # ── Placement combos ─────────────────────────────────────────────────────
+
+    def get_combo(self, combo_id: int) -> dict:
+        """Return combo dict with camelCase keys.  Raise KeyError if not found."""
+        with self._sf() as s:
+            combo = s.get(PlacementCombo, combo_id)
+            if combo is None:
+                raise KeyError(f"combo_id {combo_id!r} not found")
+            items = (
+                s.execute(
+                    select(PlacementItem).where(PlacementItem.combo_id == combo_id)
+                )
+                .scalars()
+                .all()
+            )
+            return {
+                "comboId": combo.combo_id,
+                "targetMinutes": combo.target_minutes,
+                "sections": combo.sections,
+                "items": [
+                    {
+                        "id": it.id,
+                        "skill": it.skill,
+                        "bandTag": it.band_tag,
+                        "type": it.type,
+                        "payload": it.payload,
+                        "sectionSeconds": it.section_seconds,
+                    }
+                    for it in items
+                ],
+            }
+
+    def list_combo_ids(self) -> list[int]:
+        """All combo_ids present, sorted ascending."""
+        with self._sf() as s:
+            rows = s.execute(
+                select(PlacementCombo.combo_id).order_by(PlacementCombo.combo_id)
+            ).scalars().all()
+            return list(rows)
+
+    # ── Placement attempts ────────────────────────────────────────────────────
+
+    def save_placement_attempt(
+        self,
+        user_id: int,
+        combo_id: int,
+        duration_sec: int,
+        per_skill: dict,
+        overall_band: float,
+        cefr: str,
+        gap_to_target: float,
+    ) -> int:
+        """Insert a PlacementAttempt and return its id."""
+        with self._sf() as s:
+            attempt = PlacementAttempt(
+                user_id=user_id,
+                combo_id=combo_id,
+                duration_sec=duration_sec,
+                per_skill=per_skill,
+                overall_band=overall_band,
+                cefr=cefr,
+                gap_to_target=gap_to_target,
+            )
+            s.add(attempt)
+            s.commit()
+            s.refresh(attempt)
+            return attempt.id
+
+    # ── Generated sets ────────────────────────────────────────────────────────
+
+    def serve_set(self, skill: str, band: str) -> dict | None:
+        """Return ONE random GeneratedSet.payload for (skill, band), or None."""
+        with self._sf() as s:
+            rows = (
+                s.execute(
+                    select(GeneratedSet).where(
+                        GeneratedSet.skill == skill,
+                        GeneratedSet.band == band,
+                    )
+                )
+                .scalars()
+                .all()
+            )
+            if not rows:
+                return None
+            return random.choice(rows).payload
+
+    # ── Programs & milestones ─────────────────────────────────────────────────
+
+    def create_program(self, user_id: int, length_days: int) -> Program:
+        """Insert and return the Program (with .id)."""
+        with self._sf() as s:
+            prog = Program(user_id=user_id, length_days=length_days)
+            s.add(prog)
+            s.commit()
+            s.refresh(prog)
+            s.expunge(prog)
+        return prog
+
+    def add_milestones(self, program_id: int, items: list[dict]) -> None:
+        """Insert Milestone rows for program_id.
+
+        Each item: {"idx", "dayTarget", "title", "targets"}.
+        """
+        with self._sf() as s:
+            for it in items:
+                s.add(
+                    Milestone(
+                        program_id=program_id,
+                        idx=it["idx"],
+                        day_target=it["dayTarget"],
+                        title=it["title"],
+                        targets=it["targets"],
+                    )
+                )
+            s.commit()
+
+    def get_milestones(self, program_id: int) -> list[dict]:
+        """Return milestones ordered by idx as camelCase dicts."""
+        with self._sf() as s:
+            rows = (
+                s.execute(
+                    select(Milestone)
+                    .where(Milestone.program_id == program_id)
+                    .order_by(Milestone.idx)
+                )
+                .scalars()
+                .all()
+            )
+            return [
+                {
+                    "idx": r.idx,
+                    "dayTarget": r.day_target,
+                    "title": r.title,
+                    "targets": r.targets,
+                }
+                for r in rows
+            ]
