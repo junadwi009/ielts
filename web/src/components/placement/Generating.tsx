@@ -42,7 +42,7 @@ export const Generating: React.FC = () => {
           if (!mounted.current) return;
           setProgress(Math.round((status.progress ?? 0) * 100));
           // advance visible step label
-          setStepIdx((idx) => Math.min(STEPS.length - 1, Math.round((status.progress ?? 0) * (STEPS.length - 1))));
+          setStepIdx(() => Math.min(STEPS.length - 1, Math.round((status.progress ?? 0) * (STEPS.length - 1))));
           if (status.done) {
             if (intervalId) clearInterval(intervalId);
             go("results");

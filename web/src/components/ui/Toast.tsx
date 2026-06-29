@@ -11,7 +11,9 @@ export interface ToastProps {
 
 const toneConfig: Record<
   ToastTone,
-  { classes: string; Icon: React.FC<{ size?: number; "aria-hidden"?: string }> }
+  // aria-hidden in lucide-react is Booleanish (boolean | "true" | "false")
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  { classes: string; Icon: React.FC<any> }
 > = {
   neutral: {
     classes: "bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)]",
