@@ -5,10 +5,15 @@ import { ViewProvider, useView, type View } from "./viewContext";
 import { Sidebar } from "./Sidebar";
 import { BottomTabs } from "./BottomTabs";
 import { Home } from "./Home";
+import { Reading } from "../reading/Reading";
+import { Listening } from "../listening/Listening";
+import { Writing } from "../writing/Writing";
+import { Speaking } from "../speaking/Speaking";
+import { Tips } from "../tips/Tips";
+import { Progress } from "../progress/Progress";
 
 // ---------------------------------------------------------------------------
-// View registry — Task 21: replace the placeholder <div> with the real
-// skill screen component in a single line per view.
+// View registry — Task 21: real skill screens wired in.
 // ---------------------------------------------------------------------------
 function Placeholder({ name }: { name: string }) {
   return (
@@ -24,13 +29,13 @@ type ViewRegistry = {
 
 const viewRegistry: ViewRegistry = {
   home: (levels) => <Home levels={levels} />,
-  reading: () => <Placeholder name="Reading" />,
-  listening: () => <Placeholder name="Listening" />,
-  speaking: () => <Placeholder name="Speaking" />,
-  writing: () => <Placeholder name="Writing" />,
-  test: () => <Placeholder name="Test" />,
-  tips: () => <Placeholder name="Tips" />,
-  progress: () => <Placeholder name="Progress" />,
+  reading: (levels) => <Reading band={levels.reading ?? "B2"} />,
+  listening: (levels) => <Listening band={levels.listening ?? "B1"} />,
+  speaking: () => <Speaking />,
+  writing: () => <Writing />,
+  test: () => <Placeholder name="Mock test — coming soon" />,
+  tips: () => <Tips />,
+  progress: () => <Progress />,
   settings: () => <Placeholder name="Settings" />,
 };
 

@@ -1,0 +1,173 @@
+import React, { useState } from "react";
+import { api } from "../../lib/api/client";
+import type { WritingEval } from "../../lib/types";
+import { Button } from "../ui/Button";
+import { Card } from "../ui/Card";
+import { Textarea } from "../ui/Textarea";
+import { LevelChip } from "../ui/LevelChip";
+import type { CefrBand } from "../ui/LevelChip";
+import { Badge } from "../ui/Badge";
+
+const STATIC_PROMPT =
+  "Some people think that the best way to increase road safety is to increase the minimum legal age for driving cars or riding motorbikes. To what extent do you agree or disagree?";
+
+type Phase = "editor" | "loading" | "feedback";
+
+function countWords(text: string): number {
+  return text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+}
+
+export const Writing: React.FC = () => {
+  const [phase, setPhase] = useState<Phase>("editor");
+  const [essay, setEssay] = useState("");
+  const [result, setResult] = useState<WritingEval | null>(null);
+  const [apiError, setApiError] = useState<string | null>(null);
+
+  const wordCount = countWords(essay);
+
+  const handleEvaluate = async () => {
+    if (!essay.trim()) return;
+    setPhase("loading");
+    setApiError(null);
+    try {
+      const data = await api.writingEvaluate({
+        taskType: "task2",
+        prompt: STATIC_PROMPT,
+        essay,
+      });
+      setResult(data);
+      setPhase("feedback");
+    } catch (e: unknown) {
+      setApiError(e instanceof Error ? e.message : "Evaluation failed");
+      setPhase("editor");
+    }
+  };
+
+  const handleRevise = () => {
+    setPhase("editor");
+  };
+
+  return (
+    <main className="flex-1 overflow-y-auto">
+      <div className="sticky top-0 bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 py-3 z-10">
+        <h1 className="text-base font-semibold text-[var(--color-text)]">Writing</h1>
+      </div>
+
+      <div className="p-4 md:p-6 max-w-2xl mx-auto flex flex-col gap-4">
+        {/* Prompt */}
+        <Card>
+          <p className="text-xs font-medium text-[var(--color-muted)] uppercase tracking-wide mb-1">
+            Task 2 Prompt
+          </p>
+          <p className="text-sm text-[var(--color-text)] leading-relaxed">{STATIC_PROMPT}</p>
+        </Card>
+
+        {(phase === "editor" || phase === "loading") && (
+          <>
+            <Textarea
+              label="Your essay"
+              value={essay}
+              onChange={(e) => setEssay(e.target.value)}
+              wordCount={wordCount}
+              targetWords={250}
+              rows={12}
+              placeholder="Write your response here…"
+              disabled={phase === "loading"}
+            />
+            {apiError && (
+              <p className="text-xs text-[var(--color-danger)]">{apiError}</p>
+            )}
+            <Button
+              onClick={handleEvaluate}
+              loading={phase === "loading"}
+              disabled={wordCount < 10 || phase === "loading"}
+            >
+              Evaluate
+            </Button>
+          </>
+        )}
+
+        {phase === "feedback" && result && (
+          <FeedbackView result={result} onRevise={handleRevise} />
+        )}
+      </div>
+    </main>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// FeedbackView sub-component
+// ---------------------------------------------------------------------------
+interface FeedbackViewProps {
+  result: WritingEval;
+  onRevise: () => void;
+}
+
+const CRIT_LABELS: Record<string, string> = {
+  taskAchievement: "Task Achievement",
+  coherenceCohesion: "Coherence & Cohesion",
+  lexicalResource: "Lexical Resource",
+  grammaticalRange: "Grammatical Range",
+};
+
+const FeedbackView: React.FC<FeedbackViewProps> = ({ result, onRevise }) => (
+  <div className="flex flex-col gap-4">
+    {/* CEFR + band summary */}
+    <Card>
+      <div className="flex items-center gap-3 mb-3">
+        <LevelChip band={result.cefr as CefrBand} />
+        <span className="text-xs text-[var(--color-muted)]">
+          CEFR estimate — bands are approximate
+        </span>
+      </div>
+
+      {Object.keys(result.bands).length > 0 && (
+        <div className="grid grid-cols-2 gap-2">
+          {Object.entries(result.bands).map(([key, val]) => (
+            <div key={key} className="flex flex-col">
+              <span className="text-xs text-[var(--color-muted)]">
+                {CRIT_LABELS[key] ?? key}
+              </span>
+              <span className="text-sm font-semibold text-[var(--color-text)]">
+                {val}
+                <Badge tone="neutral" className="ml-1 text-[10px]">estimate</Badge>
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+    </Card>
+
+    {/* Corrections */}
+    {Array.isArray(result.corrections) && result.corrections.length > 0 && (
+      <Card>
+        <p className="text-xs font-medium text-[var(--color-muted)] uppercase tracking-wide mb-2">
+          Corrections
+        </p>
+        <ul className="flex flex-col gap-1 text-sm text-[var(--color-text)]">
+          {result.corrections.map((c, i) => (
+            <li key={i} className="leading-snug">
+              {typeof c === "string" ? c : JSON.stringify(c)}
+            </li>
+          ))}
+        </ul>
+      </Card>
+    )}
+
+    {/* Model rewrite */}
+    {result.rewrite && (
+      <Card>
+        <p className="text-xs font-medium text-[var(--color-muted)] uppercase tracking-wide mb-2">
+          Model Rewrite
+        </p>
+        <p className="text-sm text-[var(--color-text)] leading-relaxed whitespace-pre-wrap">
+          {result.rewrite}
+        </p>
+      </Card>
+    )}
+
+    <Button variant="secondary" onClick={onRevise}>
+      ↩ Revise
+    </Button>
+  </div>
+);
