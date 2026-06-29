@@ -38,7 +38,7 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
       {/* Today hero card — brand-tinted with accent left border */}
       <section aria-labelledby="today-heading" className="mb-6">
         <div
-          className="rounded-[var(--radius-xl)] p-5 flex items-center justify-between gap-4 border-l-4 border-l-[var(--color-primary-600)]"
+          className="rounded-[var(--radius-xl)] p-5 flex items-center justify-between gap-4"
           style={{
             background: "color-mix(in srgb, var(--color-primary-50) 60%, var(--color-surface))",
             border: "1px solid color-mix(in srgb, var(--color-primary-600) 20%, transparent)",

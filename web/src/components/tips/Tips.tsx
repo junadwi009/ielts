@@ -66,13 +66,13 @@ export const Tips: React.FC = () => {
 
   return (
     <main className="flex-1 overflow-y-auto">
-      <div className="sticky top-0 bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 py-3 z-10"
+      <div className="sticky top-0 bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 md:px-6 py-3 z-10"
         style={{ boxShadow: "var(--shadow-e1)" }}
       >
         <h1 className="text-base font-semibold text-[var(--color-text)] tracking-tight">Tips</h1>
       </div>
 
-      <div className="p-4 md:p-6 max-w-2xl mx-auto flex flex-col gap-3">
+      <div className="p-4 md:p-6 max-w-2xl flex flex-col gap-3">
         {SKILLS.map((skill) => {
           const section = sections[skill];
           const headingId = `tips-heading-${skill}`;
