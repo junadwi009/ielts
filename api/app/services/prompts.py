@@ -214,6 +214,11 @@ GRAMMATICAL RANGE & ACCURACY
 
 ---
 
+Task prompt the candidate was answering:
+<task_prompt>
+{prompt}
+</task_prompt>
+
 Essay to evaluate:
 <essay>
 {essay}
