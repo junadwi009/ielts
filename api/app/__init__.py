@@ -44,6 +44,10 @@ def create_app(overrides=None):
     from .routes.practice import bp as practice_bp
     from .routes.program import bp as program_bp
     from .routes.tips import bp as tips_bp
+    from .routes.reading import bp as reading_bp
+    from .routes.listening import bp as listening_bp
+    from .routes.writing import bp as writing_bp
+    from .routes.speaking import bp as speaking_bp
 
     app.register_blueprint(health_bp)
     app.register_blueprint(onboarding_bp)
@@ -52,5 +56,9 @@ def create_app(overrides=None):
     app.register_blueprint(practice_bp)
     app.register_blueprint(program_bp)
     app.register_blueprint(tips_bp)
+    app.register_blueprint(reading_bp)
+    app.register_blueprint(listening_bp)
+    app.register_blueprint(writing_bp)
+    app.register_blueprint(speaking_bp)
 
     return app
