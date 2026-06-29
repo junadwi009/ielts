@@ -5,23 +5,32 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: "primary" | "secondary" | "ghost" | "destructive";
   size?: "sm" | "md" | "lg";
   loading?: boolean;
+  /** Stretch to full container width */
+  fullWidth?: boolean;
 }
 
 const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "bg-[var(--color-primary-600)] text-white hover:bg-[var(--color-primary-700)] border-transparent",
+    "bg-[var(--color-primary-600)] text-white border-transparent " +
+    "hover:bg-[var(--color-primary-700)] hover:shadow-[var(--shadow-e2)] " +
+    "active:scale-[.98]",
   secondary:
-    "bg-[var(--color-surface)] text-[var(--color-text)] border border-[var(--color-border)] hover:bg-[var(--color-surface-2)]",
+    "bg-[var(--color-surface)] text-[var(--color-text)] border border-[var(--color-border)] " +
+    "hover:bg-[var(--color-surface-2)] hover:border-[var(--color-primary-600)] " +
+    "active:scale-[.98]",
   ghost:
-    "bg-transparent text-[var(--color-text)] border-transparent hover:bg-[var(--color-surface-2)]",
+    "bg-transparent text-[var(--color-muted)] border-transparent " +
+    "hover:bg-[var(--color-surface-2)] hover:text-[var(--color-text)] " +
+    "active:scale-[.98]",
   destructive:
-    "bg-[var(--color-danger)] text-white border-transparent hover:opacity-90",
+    "bg-[var(--color-danger)] text-white border-transparent " +
+    "hover:opacity-90 active:scale-[.98]",
 };
 
 const sizeClasses: Record<NonNullable<ButtonProps["size"]>, string> = {
-  sm: "min-h-11 px-3 text-sm gap-1.5",
-  md: "min-h-11 px-4 text-sm gap-2",
-  lg: "min-h-11 px-6 text-base gap-2",
+  sm: "min-h-[44px] px-4 text-sm gap-1.5",
+  md: "min-h-[44px] px-5 text-sm gap-2",
+  lg: "min-h-[48px] px-7 text-base gap-2 font-semibold",
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -30,6 +39,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant = "primary",
       size = "md",
       loading = false,
+      fullWidth = false,
       disabled,
       children,
       className = "",
@@ -42,11 +52,15 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={loading || disabled}
         className={[
-          "inline-flex items-center justify-center font-medium rounded-[var(--radius-md)] transition-colors",
+          "inline-flex items-center justify-center font-medium rounded-[var(--radius-md)]",
+          "transition-[background-color,box-shadow,transform,border-color,color]",
+          "transition-duration-[var(--duration-base)] ease-[var(--ease-default)]",
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
-          "disabled:opacity-50 disabled:cursor-not-allowed",
+          // Disabled: keep saturated bg, just reduce opacity
+          "disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none",
           variantClasses[variant],
           sizeClasses[size],
+          fullWidth ? "w-full" : "",
           className,
         ]
           .filter(Boolean)

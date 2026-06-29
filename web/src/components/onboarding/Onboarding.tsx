@@ -75,44 +75,59 @@ export const Onboarding: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-full items-center justify-center p-6">
-      <Card className="flex w-full max-w-md flex-col gap-6">
+    <div className="journey-bg flex min-h-full items-center justify-center p-6">
+      <Card className="animate-fade-slide-in flex w-full max-w-md flex-col gap-6">
         <StepIndicator steps={STEPS} current={current} />
 
         {current === 0 && (
-          <Field
-            label="Your name"
-            placeholder="e.g. Arjuna"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            autoFocus
-          />
+          <div className="flex flex-col gap-2">
+            <h2 className="text-lg font-semibold text-[var(--color-text)] tracking-tight">
+              What should we call you?
+            </h2>
+            <Field
+              label="Your name"
+              placeholder="e.g. Arjuna"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              autoFocus
+            />
+          </div>
         )}
 
         {current === 1 && (
-          <div role="radiogroup" aria-label="Goal" className="flex flex-col gap-3">
-            {GOALS.map((g) => (
-              <RadioCard
-                key={g.value}
-                selected={goal === g.value}
-                onSelect={() => setGoal(g.value)}
-                icon={g.icon}
-                title={g.title}
-                description={g.description}
-              />
-            ))}
+          <div className="flex flex-col gap-2">
+            <h2 className="text-lg font-semibold text-[var(--color-text)] tracking-tight">
+              What&apos;s your goal?
+            </h2>
+            <div role="radiogroup" aria-label="Goal" className="flex flex-col gap-3">
+              {GOALS.map((g) => (
+                <RadioCard
+                  key={g.value}
+                  selected={goal === g.value}
+                  onSelect={() => setGoal(g.value)}
+                  icon={g.icon}
+                  title={g.title}
+                  description={g.description}
+                />
+              ))}
+            </div>
           </div>
         )}
 
         {current === 2 && (
-          <Slider
-            label="Target band"
-            min={4.0}
-            max={9.0}
-            step={0.5}
-            value={targetBand}
-            onChange={setTargetBand}
-          />
+          <div className="flex flex-col gap-2">
+            <h2 className="text-lg font-semibold text-[var(--color-text)] tracking-tight">
+              What&apos;s your target band?
+            </h2>
+            <Slider
+              label="Target band"
+              min={4.0}
+              max={9.0}
+              step={0.5}
+              value={targetBand}
+              onChange={setTargetBand}
+            />
+          </div>
         )}
 
         {error && (

@@ -30,17 +30,28 @@ export const RadioCard: React.FC<RadioCardProps> = ({
       onClick={onSelect}
       onKeyDown={handleKey}
       className={[
-        "flex items-start gap-3 p-4 rounded-[var(--radius-lg)] border cursor-pointer transition-colors",
+        "flex items-start gap-3 p-4 rounded-[var(--radius-lg)] border cursor-pointer",
+        "transition-[transform,box-shadow,background-color,border-color]",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
+        "active:scale-[.99]",
         selected
-          ? "border-[var(--color-primary-600)] bg-[var(--color-primary-50)] outline outline-2 outline-[var(--color-primary-600)]"
-          : "border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-2)]",
+          ? "border-[var(--color-primary-600)] bg-[var(--color-primary-50)] " +
+            "shadow-[var(--shadow-e2)] outline outline-2 outline-[var(--color-primary-600)]"
+          : "border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-e1)] " +
+            "hover:bg-[var(--color-surface-2)] hover:-translate-y-px hover:shadow-[var(--shadow-e2)] " +
+            "hover:border-[var(--color-primary-600)]",
       ]
         .filter(Boolean)
         .join(" ")}
     >
       {icon && (
-        <span className="mt-0.5 text-[var(--color-primary-600)]" aria-hidden="true">
+        <span
+          className={[
+            "mt-0.5 flex-shrink-0",
+            selected ? "text-[var(--color-primary-600)]" : "text-[var(--color-muted)]",
+          ].join(" ")}
+          aria-hidden="true"
+        >
           {icon}
         </span>
       )}
@@ -54,6 +65,7 @@ export const RadioCard: React.FC<RadioCardProps> = ({
       <span
         className={[
           "mt-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0",
+          "transition-colors",
           selected
             ? "border-[var(--color-primary-600)] bg-[var(--color-primary-600)]"
             : "border-[var(--color-border)]",

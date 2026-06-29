@@ -14,10 +14,10 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     const isOver = wordCount !== undefined && targetWords !== undefined && wordCount > targetWords;
 
     return (
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1.5">
         <label
           htmlFor={fieldId}
-          className="text-sm font-medium text-[var(--color-text)]"
+          className="text-sm font-medium text-[var(--color-text-2)]"
         >
           {label}
         </label>
@@ -27,10 +27,16 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-describedby={descId}
           aria-invalid={error ? true : undefined}
           className={[
-            "px-3 py-2 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)]",
-            "text-[var(--color-text)] text-sm min-h-[120px] resize-y",
-            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
-            error ? "border-[var(--color-danger)]" : "",
+            "px-3.5 py-3 rounded-[var(--radius-md)] border bg-[var(--color-surface)]",
+            "text-[var(--color-text)] text-sm min-h-[120px] resize-y leading-relaxed",
+            "transition-[border-color,box-shadow]",
+            "placeholder:text-[var(--color-muted)]",
+            error
+              ? "border-[var(--color-danger)] focus-visible:outline-[var(--color-danger)]"
+              : "border-[var(--color-border)] " +
+                "hover:border-[var(--color-primary-600)] " +
+                "focus-visible:outline-[var(--color-primary-600)]",
+            "focus-visible:outline-2 focus-visible:outline-offset-2",
             className,
           ]
             .filter(Boolean)
@@ -44,7 +50,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
         {wordCount !== undefined && (
           <p
-            className={`text-xs ${isOver ? "text-[var(--color-warning)]" : "text-[var(--color-muted)]"}`}
+            className={`text-xs tabular-nums ${isOver ? "text-[var(--color-warning)]" : "text-[var(--color-muted)]"}`}
           >
             {wordCount}
             {targetWords !== undefined ? `/${targetWords}` : ""} words

@@ -16,10 +16,10 @@ export const Field = React.forwardRef<HTMLInputElement, FieldProps>(
       : undefined;
 
     return (
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1.5">
         <label
           htmlFor={fieldId}
-          className="text-sm font-medium text-[var(--color-text)]"
+          className="text-sm font-medium text-[var(--color-text-2)]"
         >
           {label}
         </label>
@@ -29,10 +29,16 @@ export const Field = React.forwardRef<HTMLInputElement, FieldProps>(
           aria-describedby={descId}
           aria-invalid={error ? true : undefined}
           className={[
-            "min-h-11 px-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)]",
+            "min-h-[44px] px-3.5 rounded-[var(--radius-md)] border bg-[var(--color-surface)]",
             "text-[var(--color-text)] text-sm",
-            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
-            error ? "border-[var(--color-danger)]" : "",
+            "transition-[border-color,box-shadow]",
+            "placeholder:text-[var(--color-muted)]",
+            error
+              ? "border-[var(--color-danger)] focus-visible:outline-[var(--color-danger)]"
+              : "border-[var(--color-border)] " +
+                "hover:border-[var(--color-primary-600)] " +
+                "focus-visible:outline-[var(--color-primary-600)]",
+            "focus-visible:outline-2 focus-visible:outline-offset-2",
             className,
           ]
             .filter(Boolean)

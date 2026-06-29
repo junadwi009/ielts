@@ -30,14 +30,16 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
 
   return (
     <main className="flex-1 overflow-y-auto p-4 md:p-6">
-      <h1 className="text-2xl font-bold text-[var(--color-text)] mb-6">Dashboard</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-[var(--color-text)] mb-6">
+        Dashboard
+      </h1>
 
       {/* Today card */}
       <section aria-labelledby="today-heading" className="mb-6">
         <Card variant="hero" className="flex items-center justify-between gap-4">
           <div>
             <h2 id="today-heading" className="text-lg font-semibold mb-1">Today</h2>
-            <p className="text-sm opacity-90">Continue your next practice session</p>
+            <p className="text-sm opacity-80">Continue your next practice session</p>
           </div>
           <Button
             variant="secondary"
@@ -51,7 +53,10 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
 
       {/* Skill map */}
       <section aria-labelledby="skills-heading" className="mb-6">
-        <h2 id="skills-heading" className="text-base font-semibold text-[var(--color-text)] mb-3">
+        <h2
+          id="skills-heading"
+          className="text-base font-semibold text-[var(--color-text)] mb-3 tracking-tight"
+        >
           Your Skills
         </h2>
         <div className="grid grid-cols-2 gap-3">
@@ -59,9 +64,14 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
             const band = levels[skill];
             const nextBand = band ? NEXT_BAND[band] : "B1";
             return (
-              <Card key={skill} variant="stat">
+              <Card
+                key={skill}
+                variant="interactive"
+                className="cursor-pointer"
+                onClick={() => setView(skill)}
+              >
                 <div className="flex items-start justify-between mb-2">
-                  <span className="text-sm font-medium text-[var(--color-text)]">{label}</span>
+                  <span className="text-sm font-semibold text-[var(--color-text)]">{label}</span>
                   {band && <LevelChip band={band} />}
                 </div>
                 <p className="text-xs text-[var(--color-muted)]">
@@ -73,15 +83,18 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
         </div>
       </section>
 
-      {/* Milestone progress placeholder */}
+      {/* Milestone progress */}
       <section aria-labelledby="milestones-heading" className="mb-6">
-        <h2 id="milestones-heading" className="text-base font-semibold text-[var(--color-text)] mb-3">
+        <h2
+          id="milestones-heading"
+          className="text-base font-semibold text-[var(--color-text)] mb-3 tracking-tight"
+        >
           Milestone Progress
         </h2>
         <Card>
-          <div className="h-3 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
+          <div className="h-2.5 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
             <div
-              className="h-full rounded-full bg-[var(--color-primary-600)] transition-all"
+              className="h-full rounded-full bg-[var(--color-primary-600)] transition-[width]"
               style={{ width: "30%" }}
               role="progressbar"
               aria-valuenow={30}
@@ -89,13 +102,18 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
               aria-valuemax={100}
             />
           </div>
-          <p className="text-xs text-[var(--color-muted)] mt-2">30% towards your next milestone</p>
+          <p className="text-xs text-[var(--color-muted)] mt-2 tabular-nums">
+            30% towards your next milestone
+          </p>
         </Card>
       </section>
 
       {/* Quick links */}
       <section aria-labelledby="quicklinks-heading">
-        <h2 id="quicklinks-heading" className="text-base font-semibold text-[var(--color-text)] mb-3">
+        <h2
+          id="quicklinks-heading"
+          className="text-base font-semibold text-[var(--color-text)] mb-3 tracking-tight"
+        >
           Quick Access
         </h2>
         <div className="flex flex-wrap gap-2">

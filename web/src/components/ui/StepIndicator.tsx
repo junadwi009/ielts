@@ -1,4 +1,5 @@
 import React from "react";
+import { Check } from "lucide-react";
 
 export interface StepIndicatorProps {
   steps: string[];
@@ -10,39 +11,63 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({
   current,
 }) => {
   return (
-    <ol className="flex items-center gap-2" aria-label="Progress steps">
+    <ol className="flex items-center gap-0" aria-label="Progress steps">
       {steps.map((step, i) => {
         const done = i < current;
         const active = i === current;
+        const isLast = i === steps.length - 1;
 
         return (
-          <li key={i} className="flex items-center gap-2">
-            <span
-              className={[
-                "inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-semibold",
-                done
-                  ? "bg-[var(--color-primary-600)] text-white"
-                  : active
-                  ? "bg-[var(--color-primary-50)] text-[var(--color-primary-600)] outline outline-2 outline-[var(--color-primary-600)]"
-                  : "bg-[var(--color-surface-2)] text-[var(--color-muted)]",
-              ]
-                .filter(Boolean)
-                .join(" ")}
-              aria-current={active ? "step" : undefined}
-            >
-              {done ? "✓" : i + 1}
+          <li key={i} className="flex items-center">
+            {/* Circle */}
+            <span className="flex flex-col items-center gap-1">
+              <span
+                className={[
+                  "inline-flex items-center justify-center w-8 h-8 rounded-full text-xs font-semibold",
+                  "transition-[background-color,box-shadow,border-color]",
+                  done
+                    ? "bg-[var(--color-primary-600)] text-white shadow-[var(--shadow-e2)]"
+                    : active
+                    ? "bg-[var(--color-primary-600)] text-white shadow-[var(--shadow-e3)] " +
+                      "ring-4 ring-[var(--color-primary-100)]"
+                    : "bg-[var(--color-surface-2)] text-[var(--color-muted)] border border-[var(--color-border)]",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                aria-current={active ? "step" : undefined}
+              >
+                {done ? (
+                  <Check size={14} aria-label="completed" />
+                ) : (
+                  i + 1
+                )}
+              </span>
+              <span
+                className={[
+                  "text-xs whitespace-nowrap",
+                  active
+                    ? "font-semibold text-[var(--color-text)]"
+                    : done
+                    ? "font-medium text-[var(--color-primary-600)]"
+                    : "text-[var(--color-muted)]",
+                ].join(" ")}
+              >
+                {step}
+              </span>
             </span>
-            <span
-              className={`text-xs ${
-                active
-                  ? "font-semibold text-[var(--color-text)]"
-                  : "text-[var(--color-muted)]"
-              }`}
-            >
-              {step}
-            </span>
-            {i < steps.length - 1 && (
-              <span className="w-4 h-px bg-[var(--color-border)]" aria-hidden="true" />
+
+            {/* Connector line */}
+            {!isLast && (
+              <span
+                className={[
+                  "h-px w-8 mx-1 mb-5 flex-shrink-0 rounded-full",
+                  "transition-colors",
+                  done
+                    ? "bg-[var(--color-primary-600)]"
+                    : "bg-[var(--color-border)]",
+                ].join(" ")}
+                aria-hidden="true"
+              />
             )}
           </li>
         );

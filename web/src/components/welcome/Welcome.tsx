@@ -1,4 +1,5 @@
 import React from "react";
+import { BookOpen } from "lucide-react";
 import { Button } from "../ui";
 import { useJourney } from "../../lib/journey";
 
@@ -6,22 +7,61 @@ export const Welcome: React.FC = () => {
   const { go } = useJourney();
 
   return (
-    <div className="flex min-h-full items-center justify-center p-6">
-      <div className="flex max-w-md flex-col items-center gap-6 text-center">
-        <h1 className="text-3xl font-bold text-[var(--color-text)]">
-          IELTS Coach
-        </h1>
-        <p className="text-base text-[var(--color-muted)]">
-          Find your level, then improve it — with feedback on Writing &amp;
-          Speaking you can&apos;t grade yourself
-        </p>
-        <div className="flex w-full flex-col gap-3">
-          <Button size="lg" onClick={() => go("onboarding")}>
+    <div className="journey-bg flex min-h-full items-center justify-center p-6">
+      <div className="animate-fade-slide-in flex max-w-sm flex-col items-center gap-8 text-center">
+
+        {/* Brand mark */}
+        <div className="flex flex-col items-center gap-3">
+          <div
+            className="flex items-center justify-center w-14 h-14 rounded-[var(--radius-xl)]"
+            style={{
+              background: "linear-gradient(135deg, var(--color-primary-600), var(--color-primary-800))",
+              boxShadow: "var(--shadow-e3)",
+            }}
+            aria-hidden="true"
+          >
+            <BookOpen size={26} className="text-white" />
+          </div>
+          <span className="text-xs font-semibold tracking-widest text-[var(--color-muted)] uppercase">
+            IELTS Coach
+          </span>
+        </div>
+
+        {/* Heading */}
+        <div className="flex flex-col gap-3">
+          <h1
+            className="text-4xl font-bold text-[var(--color-text)] tracking-tight leading-tight"
+            style={{ textWrap: "balance" } as React.CSSProperties}
+          >
+            Find your level,<br />then improve it.
+          </h1>
+          <p className="text-base text-[var(--color-muted)] leading-relaxed">
+            Expert feedback on Writing &amp; Speaking you can&apos;t grade yourself — plus Reading, Listening, and a personalised study plan.
+          </p>
+        </div>
+
+        {/* CTAs */}
+        <div className="flex flex-col items-center gap-3 w-full">
+          <Button
+            size="lg"
+            onClick={() => go("onboarding")}
+            className="min-w-[12rem]"
+          >
             Get started
           </Button>
-          <Button variant="ghost" onClick={() => go("app")}>
+          <button
+            type="button"
+            onClick={() => go("app")}
+            className={[
+              "text-sm text-[var(--color-muted)] underline-offset-2",
+              "hover:text-[var(--color-text)] hover:underline",
+              "transition-colors focus-visible:outline-2 focus-visible:outline-offset-2",
+              "focus-visible:outline-[var(--color-primary-600)] rounded",
+              "min-h-[44px] px-2",
+            ].join(" ")}
+          >
             I already have a profile
-          </Button>
+          </button>
         </div>
       </div>
     </div>

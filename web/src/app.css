@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
 @theme {
+  /* ── Brand ── */
   --color-primary-50: #EEF2FF;
+  --color-primary-100: #E0E7FF;
   --color-primary-600: #4F46E5;
   --color-primary-700: #4338CA;
+  --color-primary-800: #3730A3;
   --color-accent-500: #14B8A6;
   --color-accent-600: #0D9488;
+
+  /* ── Semantic ── */
   --color-success: #16A34A;
   --color-warning: #D97706;
   --color-danger: #DC2626;
   --color-info: #2563EB;
+
+  /* ── Neutrals (light) ── */
   --color-bg: #F8FAFC;
   --color-surface: #FFFFFF;
   --color-surface-2: #F1F5F9;
@@ -17,18 +24,37 @@
   --color-text: #0F172A;
   --color-text-2: #334155;
   --color-muted: #64748B;
+
+  /* ── CEFR band colours ── */
   --color-cefr-a: #64748B;
   --color-cefr-b1: #0EA5E9;
   --color-cefr-b2: #14B8A6;
   --color-cefr-c1: #6366F1;
   --color-cefr-c2: #8B5CF6;
+
+  /* ── Typography ── */
   --font-ui: "Inter", system-ui, sans-serif;
   --font-reading: "Lexend", "Inter", system-ui, sans-serif;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+
+  /* ── Radius ── */
+  --radius-sm:  8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+
+  /* ── Elevation (slate/indigo-tinted shadows) ── */
+  --shadow-e1: 0 1px 2px rgba(15,23,42,.06);
+  --shadow-e2: 0 6px 20px -6px rgba(30,41,59,.18), 0 2px 6px -2px rgba(30,41,59,.10);
+  --shadow-e3: 0 18px 48px -12px rgba(49,46,129,.28), 0 6px 16px -8px rgba(30,41,59,.16);
+
+  /* ── Motion ── */
+  --ease-default: cubic-bezier(.2,0,.2,1);
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 280ms;
 }
 
-/* Dark mode: a .dark class on <html> overrides neutrals */
+/* ── Dark mode ── */
 .dark {
   --color-bg: #0B1120;
   --color-surface: #111827;
@@ -39,9 +65,69 @@
   --color-muted: #94A3B8;
 }
 
-html, body, #root { height: 100%; }
-body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-ui); }
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* ── Typography utilities ── */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ── Data numbers (band scores, timers) ── */
+.tabular-nums,
+[data-tabular] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Ambient journey background ── */
+.journey-bg {
+  background:
+    radial-gradient(
+      1200px 600px at 50% -10%,
+      color-mix(in srgb, var(--color-primary-50) 70%, transparent),
+      transparent
+    );
+}
+
+/* ── Fade-slide-in animation ── */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-slide-in {
+  animation: fadeSlideIn var(--duration-slow) var(--ease-default) both;
+}
+
+/* ── Reduced-motion: kill all new + existing transitions / animations ── */
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -29,8 +29,12 @@ export const LevelChip: React.FC<LevelChipProps> = ({ band, label }) => {
 
   return (
     <span
-      style={{ backgroundColor: `color-mix(in srgb, ${color} 15%, transparent)`, color }}
-      className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold"
+      style={{
+        backgroundColor: `color-mix(in srgb, ${color} 18%, transparent)`,
+        color,
+        borderColor: `color-mix(in srgb, ${color} 40%, transparent)`,
+      }}
+      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide border"
     >
       {displayLabel}
     </span>

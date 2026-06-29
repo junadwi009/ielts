@@ -5,11 +5,23 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const variantClasses: Record<NonNullable<CardProps["variant"]>, string> = {
-  default: "bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm",
+  default:
+    "bg-[var(--color-surface)] " +
+    "border border-[color-mix(in_srgb,var(--color-border)_70%,transparent)] " +
+    "shadow-[var(--shadow-e2)]",
   interactive:
-    "bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-transform",
-  hero: "bg-[var(--color-primary-600)] text-white border-transparent shadow-md",
-  stat: "bg-[var(--color-surface-2)] border border-[var(--color-border)] shadow-sm",
+    "bg-[var(--color-surface)] " +
+    "border border-[color-mix(in_srgb,var(--color-border)_70%,transparent)] " +
+    "shadow-[var(--shadow-e2)] cursor-pointer " +
+    "transition-[transform,box-shadow] " +
+    "hover:-translate-y-0.5 hover:shadow-[var(--shadow-e3)]",
+  hero:
+    "bg-[var(--color-primary-600)] text-white border-transparent " +
+    "shadow-[var(--shadow-e3)]",
+  stat:
+    "bg-[var(--color-surface-2)] " +
+    "border border-[color-mix(in_srgb,var(--color-border)_70%,transparent)] " +
+    "shadow-[var(--shadow-e1)]",
 };
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
@@ -18,7 +30,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={[
-          "rounded-[var(--radius-lg)] p-4",
+          "rounded-[var(--radius-xl)] p-5",
           variantClasses[variant],
           className,
         ]

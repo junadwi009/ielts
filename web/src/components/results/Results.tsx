@@ -60,11 +60,14 @@ export const Results: React.FC = () => {
   const headline = `Your ${SKILL_LABELS[bestSkill]} is your strongest skill — let's build from here.`;
 
   return (
-    <div className="flex min-h-full flex-col gap-6 p-6 max-w-2xl mx-auto">
+    <div className="animate-fade-slide-in flex min-h-full flex-col gap-6 p-6 max-w-2xl mx-auto">
       {/* Header */}
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-3 flex-wrap">
-          <h1 className="text-2xl font-bold text-[var(--color-text)]">
+          <h1
+            className="text-4xl font-bold text-[var(--color-text)] tracking-tight tabular-nums"
+            style={{ textWrap: "balance" } as React.CSSProperties}
+          >
             Overall Band {overallBand.toFixed(1)}
           </h1>
           <LevelChip band={cefr as CefrBand} />
@@ -74,7 +77,7 @@ export const Results: React.FC = () => {
 
       {/* Radar chart */}
       <Card>
-        <h2 className="text-sm font-semibold text-[var(--color-muted)] mb-3 uppercase tracking-wide">
+        <h2 className="text-xs font-semibold text-[var(--color-muted)] mb-4 uppercase tracking-widest">
           Skill Radar
         </h2>
         {/* Chart — may render at 0×0 in jsdom, that's fine */}
@@ -106,8 +109,10 @@ export const Results: React.FC = () => {
           <tbody>
             {radarData.map(({ skill, band }) => (
               <tr key={skill} className="border-t border-[var(--color-border)]">
-                <td className="py-1 pr-4 text-[var(--color-text)]">{skill}</td>
-                <td className="py-1 text-[var(--color-text)]">{band > 0 ? band.toFixed(1) : "—"}</td>
+                <td className="py-1.5 pr-4 text-[var(--color-text)]">{skill}</td>
+                <td className="py-1.5 text-[var(--color-text)] tabular-nums font-semibold">
+                  {band > 0 ? band.toFixed(1) : "—"}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -128,8 +133,8 @@ export const Results: React.FC = () => {
 
           return (
             <Card key={skill}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-medium text-[var(--color-text)]">
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-semibold text-[var(--color-text)]">
                   {SKILL_LABELS[skill]}
                 </span>
                 <LevelChip band={s.cefr as CefrBand} />
@@ -138,7 +143,7 @@ export const Results: React.FC = () => {
                 {approx > 0 ? (
                   <>
                     Approx. IELTS band:{" "}
-                    <span className="font-semibold text-[var(--color-text)]">
+                    <span className="font-semibold text-[var(--color-text)] tabular-nums">
                       {approx.toFixed(1)}
                     </span>
                   </>
@@ -163,7 +168,7 @@ export const Results: React.FC = () => {
 
       {/* CTA */}
       <div className="flex justify-center pt-2">
-        <Button size="lg" onClick={() => go("program")}>
+        <Button size="lg" onClick={() => go("program")} className="min-w-[14rem]">
           Choose your program
         </Button>
       </div>
