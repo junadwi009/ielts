@@ -170,3 +170,6 @@ export const Results: React.FC = () => {
     </div>
   );
 };
+
+// Default export enables lazy(() => import("./Results")) in App.tsx
+export default Results;

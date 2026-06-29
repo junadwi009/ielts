@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* NOTE: Real woff2 self-hosting for Inter and Lexend is a follow-up task.
-   Font-family stacks fall back to system-ui when woff2 files are absent.
-   Place woff2 files in src/assets/fonts/ and add @font-face declarations here. */
-
 @theme {
   --color-primary-50: #EEF2FF;
   --color-primary-600: #4F46E5;

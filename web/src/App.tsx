@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { api } from "./lib/api/client";
 import { JourneyProvider, useJourney } from "./lib/journey";
 import { Welcome } from "./components/welcome/Welcome";
 import { Onboarding } from "./components/onboarding/Onboarding";
 import { PlacementRunner } from "./components/placement/PlacementRunner";
 import { Generating } from "./components/placement/Generating";
-import { Results } from "./components/results/Results";
 import { Program } from "./components/program/Program";
 import { Milestones } from "./components/milestones/Milestones";
 import { AppShell } from "./components/menu/AppShell";
+
+// Code-split: recharts lives only in Results, so lazy-loading it keeps the main chunk smaller
+const Results = lazy(() => import("./components/results/Results"));
 
 function Placeholder({ name }: { name: string }) {
   return (
@@ -60,7 +62,11 @@ function Journey() {
     case "generating":
       return <Generating />;
     case "results":
-      return <Results />;
+      return (
+        <Suspense fallback={<div className="p-6">Loading…</div>}>
+          <Results />
+        </Suspense>
+      );
     case "program":
       return <Program />;
     case "milestones":
