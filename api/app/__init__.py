@@ -3,12 +3,48 @@ from flask_cors import CORS
 from .config import Config
 from .errors import register_error_handlers
 
+
 def create_app(overrides=None):
     app = Flask(__name__)
+    overrides = overrides or {}
     cfg = Config(overrides)
     app.config["APP_CONFIG"] = cfg
+
     CORS(app, origins=[cfg.CORS_ORIGIN])
     register_error_handlers(app)
+
+    # ── Dependency injection ───────────────────────────────────────────────
+    if "REPO" in overrides and "GATEWAY" in overrides:
+        # Test path: use injected instances directly; do NOT init a real engine.
+        app.config["REPO"] = overrides["REPO"]
+        app.config["GATEWAY"] = overrides["GATEWAY"]
+    elif cfg.DATABASE_URL:
+        # Production path: init engine, seed, build repo + gateway.
+        from sqlalchemy.orm import sessionmaker
+        from .data.db import init_engine
+        from .data.models import Base
+        from .data.repositories import Repository
+        from .data.seed import seed_all
+        from .services.llm import LlmGateway
+
+        engine = init_engine(cfg.DATABASE_URL)
+        Base.metadata.create_all(engine)
+        Session = sessionmaker(bind=engine)
+        seed_all(Session)
+        app.config["REPO"] = Repository(Session)
+        app.config["GATEWAY"] = LlmGateway(cfg)
+    # else: no DATABASE_URL and no injected deps → health-test path; REPO/GATEWAY
+    # remain unset. Routes that need them will KeyError, but health doesn't.
+
+    # ── Blueprints ─────────────────────────────────────────────────────────
     from .routes.health import bp as health_bp
+    from .routes.onboarding import bp as onboarding_bp
+    from .routes.placement import bp as placement_bp
+    from .routes.skills import bp as skills_bp
+
     app.register_blueprint(health_bp)
+    app.register_blueprint(onboarding_bp)
+    app.register_blueprint(placement_bp)
+    app.register_blueprint(skills_bp)
+
     return app
