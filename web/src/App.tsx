@@ -3,6 +3,7 @@ import { api } from "./lib/api/client";
 import { JourneyProvider, useJourney } from "./lib/journey";
 import { Welcome } from "./components/welcome/Welcome";
 import { Onboarding } from "./components/onboarding/Onboarding";
+import { PlacementRunner } from "./components/placement/PlacementRunner";
 
 function Placeholder({ name }: { name: string }) {
   return (
@@ -49,6 +50,8 @@ function Journey() {
       return <Welcome />;
     case "onboarding":
       return <Onboarding />;
+    case "placement":
+      return <PlacementRunner />;
     default:
       return <Placeholder name={step} />;
   }
