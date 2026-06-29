@@ -57,6 +57,9 @@ def _get_nlp():
     _nlp_attempted = True
     try:
         import spacy  # noqa: F401 — guard import
+        import textdescriptives  # noqa: F401 — REQUIRED: importing registers the
+        # spaCy factories ('textdescriptives/...'). Without this import, add_pipe
+        # raises E002 "Can't find factory" in a fresh process (e.g. the container).
         nlp = spacy.load("en_core_web_sm")
         # Add only the components we need to avoid the broken 'quality' component
         nlp.add_pipe("textdescriptives/dependency_distance")

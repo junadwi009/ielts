@@ -57,6 +57,26 @@ def test_metrics_syntax_keys():
         assert "nLongWords" in s
 
 
+def test_metrics_syntax_populated_when_model_present():
+    """Regression guard: when the spaCy model is installed, the syntax section
+    MUST populate. This fails if essay_metrics forgets to `import textdescriptives`
+    (its factories must be registered before add_pipe). NOTE: deliberately does NOT
+    import textdescriptives here — only essay_metrics may register the factories."""
+    import pytest
+
+    try:
+        import spacy
+
+        spacy.load("en_core_web_sm")
+    except Exception:
+        pytest.skip("en_core_web_sm not installed in this environment")
+
+    m = compute_metrics(SAMPLE)
+    assert m["syntax"] is not None, "syntax must populate when the spaCy model is available"
+    assert m["syntax"]["meanSentenceLength"] is not None
+    assert m["syntax"]["meanDependencyDepth"] is not None
+
+
 def test_metrics_short_input():
     # Very short input should not raise
     m = compute_metrics("Hello world.")
