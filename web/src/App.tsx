@@ -8,6 +8,7 @@ import { Generating } from "./components/placement/Generating";
 import { Results } from "./components/results/Results";
 import { Program } from "./components/program/Program";
 import { Milestones } from "./components/milestones/Milestones";
+import { AppShell } from "./components/menu/AppShell";
 
 function Placeholder({ name }: { name: string }) {
   return (
@@ -64,6 +65,8 @@ function Journey() {
       return <Program />;
     case "milestones":
       return <Milestones />;
+    case "app":
+      return <AppShell />;
     default:
       return <Placeholder name={step} />;
   }
