@@ -5,7 +5,7 @@ from flask import Blueprint, jsonify, request
 from pydantic import ValidationError
 
 from app.errors import ApiError
-from app.schemas import OnboardingIn
+from app.schemas import OnboardingIn, OnboardingOut
 from app.routes._deps import _repo
 
 bp = Blueprint("onboarding", __name__)
@@ -26,10 +26,12 @@ def onboarding():
         skill_targets=data.skill_targets,
     )
 
-    return jsonify({
-        "id": user.id,
-        "name": user.name,
-        "goal": user.goal,
-        "targetBand": user.target_band,
-        "skillTargets": user.skill_targets,
-    }), 200
+    return jsonify(
+        OnboardingOut(
+            id=user.id,
+            name=user.name,
+            goal=user.goal,
+            targetBand=user.target_band,
+            skillTargets=user.skill_targets,
+        ).model_dump(by_alias=True)
+    ), 200

@@ -65,7 +65,7 @@ export const Toast: React.FC<ToastProps> = ({
         onClick={onDismiss}
         aria-label="Dismiss notification"
         className={[
-          "min-h-[1.5rem] min-w-[1.5rem] flex items-center justify-center rounded",
+          "min-h-11 min-w-11 flex items-center justify-center rounded",
           "opacity-60 hover:opacity-100",
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
         ].join(" ")}

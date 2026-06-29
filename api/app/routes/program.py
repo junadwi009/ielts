@@ -6,7 +6,7 @@ from flask import Blueprint, jsonify, request
 from pydantic import ValidationError
 
 from app.errors import ApiError
-from app.schemas import ProgramIn
+from app.schemas import ProgramIn, ProgramOut, MilestoneOut
 from app.domain.program import build_milestones
 from app.routes._deps import _repo
 
@@ -38,14 +38,12 @@ def program_create():
     prog = repo.create_program(user.id, data.length_days)
     repo.add_milestones(prog.id, ms)
 
-    return jsonify({
-        "program": {
-            "id": prog.id,
-            "lengthDays": prog.length_days,
-            "status": prog.status,
-        },
-        "milestones": ms,
-    }), 200
+    return jsonify(
+        ProgramOut(
+            program={"id": prog.id, "lengthDays": prog.length_days, "status": prog.status},
+            milestones=[MilestoneOut(**m) for m in ms],
+        ).model_dump(by_alias=True)
+    ), 200
 
 
 @bp.get("/api/program/milestones")

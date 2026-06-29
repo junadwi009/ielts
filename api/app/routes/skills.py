@@ -3,6 +3,7 @@ GET /api/skill-levels — return current CEFR band per skill for the active user
 """
 from flask import Blueprint, jsonify
 
+from app.schemas import SkillLevelOut
 from app.routes._deps import _repo
 
 bp = Blueprint("skills", __name__)
@@ -16,4 +17,4 @@ def skill_levels():
         return jsonify([]), 200
 
     levels = repo.get_skill_levels(user.id)
-    return jsonify([{"skill": s, "band": b} for s, b in levels]), 200
+    return jsonify([SkillLevelOut(skill=s, band=b).model_dump(by_alias=True) for s, b in levels]), 200

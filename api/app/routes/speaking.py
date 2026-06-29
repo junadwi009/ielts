@@ -18,4 +18,5 @@ def speaking_evaluate():
         question=body.get("question"),
         transcript=body.get("transcript", ""),
     )
+    # gateway-defined shape; passthrough dict — shape validated client-side
     return jsonify(out), 200

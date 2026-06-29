@@ -74,6 +74,7 @@ class PerSkill(BaseModel):
     ielts_approx: float | None = Field(alias="ieltsApprox", default=None)
     raw: str | None = None
     confidence: str | None = None
+    assessed: bool | None = None
     criteria: dict = Field(default_factory=dict)
     metrics: dict = Field(default_factory=dict)
 
@@ -101,6 +102,16 @@ class ProgramOut(BaseModel):
 
     program: dict
     milestones: list[MilestoneOut]
+
+
+class OnboardingOut(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+
+    id: int
+    name: str
+    goal: Goal
+    target_band: float = Field(alias="targetBand")
+    skill_targets: dict = Field(alias="skillTargets", default_factory=dict)
 
 
 class SkillLevelOut(BaseModel):
@@ -133,6 +144,7 @@ __all__ = [
     "Skill",
     "ProgramLength",
     "OnboardingIn",
+    "OnboardingOut",
     "PlacementSubmitIn",
     "ProgramIn",
     "PlacementStartOut",

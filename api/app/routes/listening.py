@@ -14,4 +14,5 @@ def listening_generate():
     band = body.get("band", "B1")
     gateway = _gateway()
     out = gateway.generate("generate", skill="listening", band=band)
+    # gateway-defined shape; passthrough dict — shape validated client-side
     return jsonify(out), 200

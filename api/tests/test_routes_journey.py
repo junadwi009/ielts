@@ -6,6 +6,9 @@ Integration tests for onboarding → placement start/submit → skill-levels jou
 def test_onboarding_then_start(client_with_seed):
     r = client_with_seed.post("/api/onboarding", json={"name": "A", "goal": "work", "targetBand": 6.5})
     assert r.status_code == 200
+    body = r.get_json()
+    # OnboardingOut alias: targetBand must be camelCase in the response
+    assert body["targetBand"] == 6.5
     s = client_with_seed.post("/api/placement/start", json={})
     body = s.get_json()
     assert body["comboId"] in (1, 2)
@@ -34,5 +37,9 @@ def test_submit_seeds_skill_levels(client_with_seed):
     assert res.status_code == 200
     body = res.get_json()
     assert set(body["perSkill"].keys()) == {"listening", "reading", "writing", "speaking"}
+    # PlacementResultOut contract: all top-level camelCase fields present
+    assert "overallBand" in body
+    assert "cefr" in body
+    assert "gapToTarget" in body
     levels = client_with_seed.get("/api/skill-levels").get_json()
     assert len(levels) == 4

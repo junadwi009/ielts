@@ -18,4 +18,5 @@ def writing_evaluate():
         prompt=body.get("prompt"),
         essay=body.get("essay", ""),
     )
+    # gateway-defined shape; passthrough dict — shape validated client-side
     return jsonify(out), 200

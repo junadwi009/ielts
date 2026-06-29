@@ -42,4 +42,5 @@ def practice_set():
     if payload is None:
         raise ApiError("NOT_FOUND", f"no set for {skill}", 404)
 
+    # free-form generated set payload; shape validated client-side
     return jsonify(payload), 200

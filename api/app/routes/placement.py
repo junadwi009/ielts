@@ -6,7 +6,7 @@ from flask import Blueprint, jsonify, request
 from pydantic import ValidationError
 
 from app.errors import ApiError
-from app.schemas import PlacementStartOut, PlacementSubmitIn
+from app.schemas import PlacementStartOut, PlacementSubmitIn, PlacementResultOut
 from app.domain.placement import serve_combo, grade_placement
 from app.routes._deps import _repo, _gateway
 
@@ -75,5 +75,5 @@ def placement_submit():
         gap_to_target=result["gapToTarget"],
     )
 
-    # 7. Return result (already camelCase from grade_placement)
-    return jsonify(result), 200
+    # 7. Validate and return result through PlacementResultOut (wire JSON unchanged)
+    return jsonify(PlacementResultOut.model_validate(result).model_dump(by_alias=True)), 200

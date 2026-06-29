@@ -37,6 +37,7 @@ export interface PerSkill {
   ielts?: number | null;
   raw?: string;
   confidence?: string;
+  assessed?: boolean;
 }
 
 export interface PlacementResult {
