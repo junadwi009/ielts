@@ -1,0 +1,455 @@
+{
+  "reading": [
+    {
+      "setIndex": 1,
+      "band": "B2",
+      "payload": {
+        "title": "The Psychology of Procrastination",
+        "passage": "Procrastination — the act of delaying a task that one intends to complete — is one of the most studied yet poorly understood phenomena in psychology. The popular view is that procrastination results from laziness or poor time management, but contemporary research paints a very different picture. Procrastination is now understood primarily as an emotion-regulation problem: people avoid tasks not because they are idle, but because those tasks provoke negative feelings such as anxiety, boredom, self-doubt, or resentment.\n\nFuschia Sirois, a psychologist at Durham University, has argued that procrastination is essentially a coping strategy, albeit a counterproductive one. When a task triggers unpleasant emotions, the path of least resistance is to switch to something more immediately rewarding — browsing social media, making a cup of tea, tidying a desk that was already tidy. The temporary relief feels real and significant; the eventual cost of the delay, being in the future, feels abstract and manageable. This gap between immediate emotional relief and future consequences is the core mechanism of procrastination.\n\nNeuroscientific research has shed light on the brain structures involved. The limbic system, including the amygdala, processes emotional responses and tends to prioritise immediate comfort. The prefrontal cortex, responsible for planning and long-term thinking, can override limbic impulses — but only when it is sufficiently activated, which requires deliberate cognitive effort. Procrastinators, studies suggest, tend to have weaker functional connectivity between these two regions, making it harder to override the impulse to avoid.\n\nThe consequences of chronic procrastination extend beyond missed deadlines. Research has linked habitual procrastination to lower academic performance, poorer physical health, higher levels of stress, and worse financial outcomes. One striking finding is that procrastinators tend to be more stressed overall, not less: the task they are avoiding continues to occupy mental bandwidth even while they are doing something else, producing a form of low-level, persistent anxiety.\n\nFortunately, evidence-based strategies exist. Implementation intentions — specific 'when-then' plans such as 'when I sit down at my desk at nine, I will immediately open the document and write for twenty minutes' — have consistently reduced procrastination in experimental settings. Self-compassion, counterintuitively, is also effective: people who respond to their own procrastination with criticism rather than understanding tend to procrastinate more, whereas accepting the lapse and moving forward without excessive guilt actually supports better follow-through.",
+        "questions": [
+          {
+            "stem": "According to the passage, procrastination is mainly caused by laziness.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage states that procrastination is 'now understood primarily as an emotion-regulation problem', explicitly contradicting the laziness explanation."
+          },
+          {
+            "stem": "Fuschia Sirois works at Durham University.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage directly states 'Fuschia Sirois, a psychologist at Durham University'."
+          },
+          {
+            "stem": "Procrastinators have been found to experience less overall stress than non-procrastinators.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage states 'procrastinators tend to be more stressed overall, not less'."
+          },
+          {
+            "stem": "Implementation intentions are a type of meditation technique used to reduce procrastination.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "Implementation intentions are described as specific 'when-then' plans, not meditation techniques."
+          },
+          {
+            "stem": "The passage suggests that being self-critical about procrastination helps people improve their behaviour.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage states that 'people who respond to their own procrastination with criticism... tend to procrastinate more', so self-criticism is counterproductive."
+          }
+        ]
+      }
+    },
+    {
+      "setIndex": 2,
+      "band": "B2",
+      "payload": {
+        "title": "Rewilding: Restoring Nature at Scale",
+        "passage": "Rewilding is an approach to conservation that goes beyond simply protecting what remains of natural habitats. It aims to restore ecosystems to a more self-sustaining state, often by reintroducing large predators or herbivores that were hunted to extinction centuries ago. Unlike traditional conservation, which tends to manage every detail of a habitat, rewilding accepts uncertainty and allows ecological processes to unfold without intensive human intervention.\n\nThe most famous rewilding experiment is the reintroduction of grey wolves to Yellowstone National Park in the United States in 1995. Before the reintroduction, elk populations had grown unchecked and had grazed riverbanks heavily, preventing tree regeneration and causing erosion. After wolves were reintroduced, elk behaviour changed dramatically: the animals began to avoid open valleys where wolves could easily spot them, allowing willows and aspens to regenerate along the riverbanks. The roots of these trees stabilised the soil, reduced erosion, and altered the course of rivers — a phenomenon ecologists call a 'trophic cascade.' The wolves had changed not just the biology of the park but its physical geography.\n\nIn Europe, rewilding organisations such as Rewilding Europe are working to restore large tracts of rural land abandoned after the decline of traditional farming. They aim to reintroduce bison, lynx, and other species, and to allow natural processes such as wildfire and river flooding to operate more freely. Critics argue that rewilding is a luxury of wealthy societies and that it threatens the livelihoods of rural communities who have historically managed the land. Proponents counter that healthy ecosystems provide economic benefits — clean water, flood control, tourism — that exceed the value of the agricultural uses they replace.\n\nThe term 'rewilding' itself is contested. Some scientists use it narrowly to refer only to predator reintroduction; others use it broadly to describe any effort to restore ecological complexity. This semantic ambiguity has created difficulties in measuring the success of rewilding projects and comparing outcomes across different landscapes and cultures.\n\nWhat is clear is that the conversation around rewilding represents a fundamental shift in how societies think about their relationship with the natural world — from one of management and control to one of restoration and coexistence.",
+        "questions": [
+          {
+            "stem": "Rewilding aims to manage every detail of natural habitats to protect biodiversity.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage states that rewilding 'accepts uncertainty and allows ecological processes to unfold without intensive human intervention', which is the opposite of managing every detail."
+          },
+          {
+            "stem": "Grey wolves were reintroduced to Yellowstone National Park in 1995.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage explicitly states the reintroduction occurred 'in 1995'."
+          },
+          {
+            "stem": "The elk in Yellowstone increased in number after wolves were reintroduced.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "Not Given",
+            "explanation": "The passage describes a change in elk behaviour, not their numbers after reintroduction."
+          },
+          {
+            "stem": "Rewilding Europe plans to reintroduce bison and lynx to parts of Europe.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage states 'They aim to reintroduce bison, lynx, and other species'."
+          },
+          {
+            "stem": "There is universal agreement among scientists on what the term 'rewilding' means.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage explicitly describes 'The term rewilding itself is contested' with different scientists using it in different ways."
+          }
+        ]
+      }
+    },
+    {
+      "setIndex": 3,
+      "band": "B2",
+      "payload": {
+        "title": "Microplastics in the Environment",
+        "passage": "Microplastics — defined as plastic particles smaller than five millimetres — have become one of the most pervasive pollutants of the modern era. Since large-scale plastic production began in the 1950s, an estimated eight billion tonnes of plastic have been manufactured globally, and a significant proportion of this material has escaped into natural environments, where ultraviolet radiation and mechanical stress gradually break it down into smaller and smaller fragments. Today, microplastics have been detected in virtually every ecosystem on Earth, from deep ocean sediments to Arctic sea ice, from mountain streams to the lungs and bloodstreams of human beings.\n\nMicroplastics enter the environment through multiple pathways. Synthetic clothing releases plastic microfibres when washed — a single wash cycle can release hundreds of thousands of fibres, many of which pass straight through wastewater treatment systems. Vehicle tyres shed microplastic particles as they wear against road surfaces; rainfall then washes this tyre dust into rivers and ultimately the sea. Fishing equipment, single-use packaging, and industrial pellets called 'nurdles' — the raw material from which plastic products are made — also contribute substantially.\n\nThe health effects on marine wildlife are well documented. Filter feeders such as mussels and oysters accumulate microplastics in their tissues; fish mistake plastic fragments for food, filling their stomachs and reducing the appetite for real nutrition, leading to starvation. Seabirds and marine mammals are found entangled in or having ingested larger plastic debris that has not yet fragmented fully. At the microscopic level, microplastics serve as vectors for toxic chemicals, both those used in their manufacture and pollutants they absorb from the surrounding water.\n\nThe effects on human health are less clearly established but increasingly a matter of concern. Microplastics have been found in human blood, placental tissue, and deep lung tissue. A 2022 study detected microplastics in the blood of 77 percent of participants. Whether these particles cause harm at the concentrations found remains the subject of active research; scientists cannot yet draw firm conclusions, but the precautionary principle suggests that continuing to release microplastics at current rates would be imprudent.\n\nAddressing microplastic pollution requires action at multiple levels. Some countries have banned microbeads in cosmetics — one of the more easily regulated sources. Broader solutions include improving wastewater treatment, developing biodegradable alternatives to conventional plastics, and designing products for longevity and recyclability rather than single use.",
+        "questions": [
+          {
+            "stem": "Microplastics are defined as plastic particles smaller than five millimetres.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "This matches the passage's opening definition exactly."
+          },
+          {
+            "stem": "Microplastics have been detected in human blood.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage states 'Microplastics have been found in human blood, placental tissue, and deep lung tissue'."
+          },
+          {
+            "stem": "Scientists have confirmed that microplastics in human blood cause serious diseases.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage says 'scientists cannot yet draw firm conclusions', so confirmed harm has not been established."
+          },
+          {
+            "stem": "A single laundry wash cycle can release hundreds of thousands of plastic microfibres.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage states 'a single wash cycle can release hundreds of thousands of fibres'."
+          },
+          {
+            "stem": "All countries have now banned microbeads in cosmetic products.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage states 'Some countries have banned microbeads', not all countries."
+          }
+        ]
+      }
+    },
+    {
+      "setIndex": 4,
+      "band": "B2",
+      "payload": {
+        "title": "The Rise of Remote Work",
+        "passage": "The widespread adoption of remote work — precipitated by the COVID-19 pandemic in 2020 — has prompted intense debate about the future of the workplace. For two years, hundreds of millions of workers performed their jobs from home, and many organisations discovered that productivity did not collapse as feared. Surveys conducted during and after the pandemic consistently showed that the majority of knowledge workers preferred a hybrid model — working from home for two or three days a week — over either fully remote or fully in-office arrangements.\n\nThe benefits of remote work for employees are numerous. The elimination of commuting saves time — an average of over an hour per day in many major cities — and reduces costs. Workers report greater autonomy over their environment and schedule, which research links to higher job satisfaction. Parents and carers benefit from greater flexibility in managing domestic responsibilities. And for workers in expensive cities, the option to relocate to cheaper regions while retaining metropolitan salaries represents a significant economic gain.\n\nFor employers, the picture is more mixed. The clearest advantage is access to a global talent pool no longer constrained by geography. A company based in London can hire an exceptional software engineer based in Porto or Vilnius without requiring relocation. Office real estate costs also fall substantially when fewer staff are in the building each day. On the other hand, many managers report that creativity and innovation — particularly the spontaneous, unplanned exchanges of ideas that happen when people share physical space — are harder to replicate virtually. Onboarding new employees, building company culture, and mentoring junior staff all become significantly more challenging when interactions are mediated primarily by screens.\n\nThe evidence on productivity is genuinely mixed and varies by role, personality type, and home environment. A study by Stanford economist Nicholas Bloom found that fully remote workers were about ten percent less productive than office workers on tasks requiring collaboration, though equally productive on individual tasks. A subsequent study found that hybrid arrangements — rather than fully remote — produced the best outcomes across both categories.\n\nAs organisations settle into post-pandemic norms, a clear pattern is emerging: most large employers are moving towards hybrid models with some mandated in-office days, rather than leaving attendance entirely to individual discretion. The era of the purely in-office workforce, however, appears to be over.",
+        "questions": [
+          {
+            "stem": "The majority of knowledge workers prefer a fully remote working arrangement.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage states workers preferred 'a hybrid model', not fully remote."
+          },
+          {
+            "stem": "Remote work allows companies to recruit talent from outside their home city.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage states companies can hire from a 'global talent pool no longer constrained by geography'."
+          },
+          {
+            "stem": "Nicholas Bloom is an economist at Stanford University.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage directly identifies him as 'Stanford economist Nicholas Bloom'."
+          },
+          {
+            "stem": "Fully remote workers were found to be less productive than office workers on collaborative tasks.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "Bloom's study found fully remote workers 'about ten percent less productive... on tasks requiring collaboration'."
+          },
+          {
+            "stem": "Most large companies plan to return to fully in-office working arrangements by 2025.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage states most employers are moving to hybrid models, and 'The era of the purely in-office workforce... appears to be over'."
+          }
+        ]
+      }
+    },
+    {
+      "setIndex": 5,
+      "band": "B2",
+      "payload": {
+        "title": "Artificial Intelligence in Healthcare",
+        "passage": "Artificial intelligence is beginning to transform medical diagnosis and treatment, with potentially profound implications for patient outcomes and healthcare costs. Unlike conventional software that follows explicit rules, modern AI systems learn from vast datasets of medical images, patient records, and clinical notes, identifying patterns that would be impossible for a human clinician to discern unaided.\n\nIn radiology, AI has demonstrated performance that matches or exceeds that of experienced specialists in specific tasks. A deep-learning system developed at Google Health was shown to detect breast cancer in mammograms with greater accuracy than a panel of six radiologists, reducing both false negatives — missed cancers — and false positives — unnecessary follow-up procedures. Similar systems have been developed for detecting diabetic retinopathy from eye scans, skin cancer from dermatology images, and early pneumonia from chest X-rays.\n\nThe potential benefits are clearest in settings where specialist expertise is scarce. In low- and middle-income countries, there is an acute shortage of trained radiologists. An AI system that can flag high-risk scans for priority review by a generalist doctor could save thousands of lives annually. In high-income settings, AI can reduce the backlog of routine screening examinations, freeing radiologists to focus on complex cases.\n\nHowever, significant challenges remain. AI systems trained on data from one population can perform poorly when deployed in a different context — a phenomenon known as dataset shift. A system trained predominantly on images from patients of European descent may be less accurate when applied to patients of other ethnicities. There are also concerns about transparency: most high-performing AI models are 'black boxes' that produce outputs without a human-interpretable explanation of their reasoning, making it difficult for clinicians to know when to trust and when to override the system.\n\nRegulatory frameworks are struggling to keep pace with the technology. Unlike drugs, which are approved once and then manufactured consistently, AI systems may retrain continuously on new data, potentially changing their behaviour after approval. Balancing the genuine life-saving potential of medical AI against these risks will be one of the central health-policy challenges of the coming decade.",
+        "questions": [
+          {
+            "stem": "Modern medical AI learns from large datasets rather than following rules set by programmers.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage contrasts modern AI, which 'learn[s] from vast datasets', with 'conventional software that follows explicit rules'."
+          },
+          {
+            "stem": "The Google Health AI system reduced both missed cancers and unnecessary follow-up procedures.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage states it reduced 'both false negatives — missed cancers — and false positives — unnecessary follow-up procedures'."
+          },
+          {
+            "stem": "AI diagnostic tools are already used in every hospital in low-income countries.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "Not Given",
+            "explanation": "The passage discusses the potential of AI in low-income settings but does not state it is already universally deployed there."
+          },
+          {
+            "stem": "Dataset shift means that an AI trained on one population may be less accurate on a different population.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "True",
+            "explanation": "The passage defines dataset shift as exactly this phenomenon."
+          },
+          {
+            "stem": "Regulatory bodies have already developed comprehensive frameworks to govern medical AI systems.",
+            "options": ["True", "False", "Not Given"],
+            "answer": "False",
+            "explanation": "The passage states 'Regulatory frameworks are struggling to keep pace with the technology', indicating they are insufficient."
+          }
+        ]
+      }
+    }
+  ],
+  "listening": [
+    {
+      "setIndex": 1,
+      "band": "B1",
+      "payload": {
+        "title": "A Talk on Study Skills",
+        "transcript": "Good morning everyone. Today I'm going to talk about three study skills that can make a big difference to how you perform in exams. The first is active recall. Instead of reading your notes over and over, close them and try to write down everything you can remember. This forces your brain to retrieve information, which strengthens the memory. Research shows this is far more effective than passive re-reading. The second technique is spaced repetition. Don't study everything in one long session the night before an exam — spread your revision over several days or weeks, returning to the same material at increasing intervals. Each time you review material after a gap, the memory becomes stronger and more durable. The third technique is the Pomodoro method, named after a tomato-shaped kitchen timer. You work for twenty-five minutes with full concentration, then take a five-minute break. After four Pomodoros you take a longer break of fifteen to thirty minutes. This helps you maintain focus and avoid mental fatigue. If you combine all three — active recall, spaced repetition, and timed focus sessions — you'll find you can learn more in less time with less stress.",
+        "questions": [
+          {
+            "stem": "What does active recall involve?",
+            "answer": "Closing your notes and trying to write down everything you remember",
+            "explanation": "The speaker describes active recall as 'close them [notes] and try to write down everything you can remember'."
+          },
+          {
+            "stem": "What is spaced repetition designed to avoid?",
+            "answer": "Studying everything in one session the night before an exam",
+            "explanation": "The speaker contrasts spaced repetition with 'one long session the night before an exam'."
+          },
+          {
+            "stem": "How long is a standard Pomodoro work session?",
+            "answer": "Twenty-five minutes",
+            "explanation": "The speaker states 'You work for twenty-five minutes with full concentration'."
+          },
+          {
+            "stem": "How long is the longer break taken after four Pomodoros?",
+            "answer": "Fifteen to thirty minutes",
+            "explanation": "The speaker states 'you take a longer break of fifteen to thirty minutes'."
+          }
+        ]
+      }
+    },
+    {
+      "setIndex": 2,
+      "band": "B1",
+      "payload": {
+        "title": "Museum Audio Guide: Ancient Egyptians",
+        "transcript": "Welcome to Gallery Seven, which is dedicated to the civilisation of ancient Egypt. The objects in this gallery span a period of over three thousand years, from the early Dynastic period to the Roman conquest. The first item you'll see as you enter is a limestone funerary stele — that's S-T-E-L-E — dating from approximately 2400 BCE. The carvings on the stele show a wealthy official seated at a table loaded with offerings of food and drink. The Egyptians believed that the soul, or ka, required nourishment after death, and these carvings were thought to magically provide food for eternity. Moving along the left-hand wall, you'll find a selection of canopic jars. These ceramic vessels were used to store the preserved internal organs of mummies during the mummification process. There were typically four jars per burial: one for the liver, one for the lungs, one for the stomach, and one for the intestines. The heart was always left in the body because the Egyptians believed it would be weighed against the feather of truth at the final judgement. The gallery closes at five o'clock. Please ensure you have seen the central display case before leaving, as it contains the highlight of this collection: a rare painted wooden coffin from the Middle Kingdom.",
+        "questions": [
+          {
+            "stem": "What material is the funerary stele made from?",
+            "answer": "Limestone",
+            "explanation": "The guide describes it as 'a limestone funerary stele'."
+          },
+          {
+            "stem": "What did the Egyptians call the soul that required food after death?",
+            "answer": "Ka",
+            "explanation": "The guide states 'The Egyptians believed that the soul, or ka, required nourishment after death'."
+          },
+          {
+            "stem": "How many canopic jars were typically used in a single burial?",
+            "answer": "Four",
+            "explanation": "The guide states 'There were typically four jars per burial'."
+          },
+          {
+            "stem": "Why was the heart left inside the mummy's body?",
+            "answer": "It would be weighed against the feather of truth at the final judgement",
+            "explanation": "The guide explains the Egyptians believed the heart 'would be weighed against the feather of truth at the final judgement'."
+          }
+        ]
+      }
+    },
+    {
+      "setIndex": 3,
+      "band": "B1",
+      "payload": {
+        "title": "Phone Call: Booking a Language Course",
+        "transcript": "Receptionist: Good afternoon, Global Language School, how can I help? Caller: Hi, I'd like to book an intensive Spanish course. I'm a complete beginner. Receptionist: Certainly. We have two beginner options this month. The first runs Monday to Friday for two weeks — that's ten days of lessons, three hours per day in the morning from nine until noon. The total cost is three hundred and sixty pounds. The second option is an evening course, running Monday, Wednesday, and Friday evenings from six to eight — that's six hours per week over four weeks. The cost is two hundred and forty pounds. Caller: I think I'd prefer the morning option. My schedule is free in the mornings. Receptionist: Great. Can I take your name and email address? Caller: Sure, it's Paula Jenkins, and my email is paula underscore j at outlook dot com. Receptionist: Paula Jenkins, paula underscore j at outlook dot com. We'll send you a confirmation and course materials pack by Thursday. Will you be paying by card today? Caller: Yes please. Receptionist: Could you give me your card number? Caller: It's four, two, one, seven — nine, eight, six, five — three, three, zero, one — four, four, eight, nine.",
+        "questions": [
+          {
+            "stem": "What are the morning course hours?",
+            "answer": "9am to noon (9:00 to 12:00)",
+            "explanation": "The receptionist states the course runs 'three hours per day in the morning from nine until noon'."
+          },
+          {
+            "stem": "How much does the morning intensive course cost?",
+            "answer": "£360",
+            "explanation": "The receptionist states 'The total cost is three hundred and sixty pounds'."
+          },
+          {
+            "stem": "Why does the caller prefer the morning course?",
+            "answer": "Her schedule is free in the mornings",
+            "explanation": "The caller states 'My schedule is free in the mornings'."
+          },
+          {
+            "stem": "When will the school send the confirmation and materials?",
+            "answer": "By Thursday",
+            "explanation": "The receptionist says 'We'll send you a confirmation and course materials pack by Thursday'."
+          }
+        ]
+      }
+    },
+    {
+      "setIndex": 4,
+      "band": "B1",
+      "payload": {
+        "title": "Short Talk: The Benefits of Walking",
+        "transcript": "Hello, and welcome to this week's health segment. Today I want to make a simple but important case for walking — specifically, for incorporating a daily walk of at least thirty minutes into your routine. The benefits are surprisingly wide-ranging. On the physical side, regular brisk walking strengthens the heart, improves circulation, helps maintain a healthy weight, and reduces the risk of type 2 diabetes. These benefits appear even at moderate pace — you don't need to walk fast to see results. For mental health, the evidence is equally compelling. Studies have shown that walking for just ten to fifteen minutes can reduce feelings of anxiety and low mood, and that daily walkers report significantly higher life satisfaction scores than people who are mostly sedentary. One study found that walking in a natural environment — a park or forest — rather than an urban one produced greater reductions in rumination, the repetitive negative thinking associated with depression. If you can't get to a park, walking along quieter streets still offers benefits. The key message is consistency over intensity: a moderate walk every day is more beneficial than an occasional vigorous run. Start with twenty minutes and build from there.",
+        "questions": [
+          {
+            "stem": "What minimum daily walk duration is recommended in the talk?",
+            "answer": "Thirty minutes",
+            "explanation": "The speaker recommends 'a daily walk of at least thirty minutes'."
+          },
+          {
+            "stem": "What mental health condition is linked to repetitive negative thinking?",
+            "answer": "Depression",
+            "explanation": "The speaker refers to 'rumination, the repetitive negative thinking associated with depression'."
+          },
+          {
+            "stem": "According to a study mentioned, where does walking produce greater reductions in negative thinking?",
+            "answer": "In a natural environment such as a park or forest",
+            "explanation": "The speaker cites a study showing 'walking in a natural environment — a park or forest — produced greater reductions in rumination'."
+          },
+          {
+            "stem": "What does the speaker say is more important than intensity?",
+            "answer": "Consistency",
+            "explanation": "The speaker states 'consistency over intensity: a moderate walk every day is more beneficial than an occasional vigorous run'."
+          }
+        ]
+      }
+    },
+    {
+      "setIndex": 5,
+      "band": "B1",
+      "payload": {
+        "title": "Guided Tour: City Art Gallery",
+        "transcript": "Welcome to the City Art Gallery. I'm Sarah, your guide today, and I'll be taking you through three of our most significant collections. We'll start here on the ground floor with the Dutch Golden Age paintings, then move upstairs to the nineteenth-century landscape gallery, and finish in the contemporary wing, which was added to the building in 2018. A few housekeeping points before we begin. Photography is allowed throughout the gallery, but please turn your flash off near the older paintings — UV from flash can cause fading over time. Please don't touch the artworks. If your phone rings, please step out of the gallery before answering. And refreshments are available in the café on the ground floor, which closes at four thirty — thirty minutes before the gallery itself closes at five. Our first painting today is by Jan van Huysum, a Dutch master who lived from 1682 to 1749. He was famous for his flower still-lifes, which are extraordinary for their detail. Look closely and you'll see a caterpillar on the lower left leaf — van Huysum often included small insects or drops of water to demonstrate his technical skill. On your left is his most celebrated work in this collection, which took him three years to complete because he insisted on painting each flower from life, even when the flowers were out of season.",
+        "questions": [
+          {
+            "stem": "In what year was the contemporary wing added to the gallery?",
+            "answer": "2018",
+            "explanation": "The guide states 'the contemporary wing, which was added to the building in 2018'."
+          },
+          {
+            "stem": "Why should visitors turn off their camera flash?",
+            "answer": "UV from flash can cause fading of older paintings",
+            "explanation": "The guide explains 'UV from flash can cause fading over time'."
+          },
+          {
+            "stem": "What time does the café close?",
+            "answer": "Four thirty (4:30)",
+            "explanation": "The guide states 'the café on the ground floor, which closes at four thirty'."
+          },
+          {
+            "stem": "Why did van Huysum's most celebrated work take three years to complete?",
+            "answer": "He insisted on painting each flower from life, even when out of season",
+            "explanation": "The guide states he 'insisted on painting each flower from life, even when the flowers were out of season'."
+          }
+        ]
+      }
+    }
+  ],
+  "writing": [
+    {
+      "setIndex": 1,
+      "band": "B1",
+      "payload": {
+        "taskType": "task2",
+        "prompt": "Some people think that children should spend more time playing outdoors, while others believe that structured indoor activities such as classes and clubs are more beneficial. Discuss both views and give your own opinion.",
+        "targetWords": 250
+      }
+    },
+    {
+      "setIndex": 2,
+      "band": "B1",
+      "payload": {
+        "taskType": "task2",
+        "prompt": "Many people believe that social media has had a negative effect on the way people communicate with each other in real life. To what extent do you agree or disagree?",
+        "targetWords": 250
+      }
+    },
+    {
+      "setIndex": 3,
+      "band": "B1",
+      "payload": {
+        "taskType": "task2",
+        "prompt": "Some people argue that it is better to study at a university in another country rather than at a university in your home country. What are the advantages and disadvantages of studying abroad?",
+        "targetWords": 250
+      }
+    },
+    {
+      "setIndex": 4,
+      "band": "B1",
+      "payload": {
+        "taskType": "task2",
+        "prompt": "The number of cars on our roads is increasing and this is causing serious problems for both the environment and society. What are the main problems caused by the increase in car use, and what solutions can you suggest?",
+        "targetWords": 250
+      }
+    },
+    {
+      "setIndex": 5,
+      "band": "B1",
+      "payload": {
+        "taskType": "task2",
+        "prompt": "In some cultures, elderly people are cared for within the family home, while in others they typically live in specialist care homes. What are the benefits and drawbacks of each approach?",
+        "targetWords": 250
+      }
+    }
+  ],
+  "speaking": [
+    {
+      "setIndex": 1,
+      "band": "B1",
+      "payload": {
+        "part": "part2",
+        "questions": [
+          "Describe a hobby or activity you enjoy in your free time. You should say: what it is, how long you have been doing it, what skills or equipment are needed, and explain why you enjoy it."
+        ]
+      }
+    },
+    {
+      "setIndex": 2,
+      "band": "B1",
+      "payload": {
+        "part": "part2",
+        "questions": [
+          "Describe a journey or trip that you remember well. You should say: where you went, who you travelled with, what happened during the journey, and explain why you remember it so clearly."
+        ]
+      }
+    },
+    {
+      "setIndex": 3,
+      "band": "B1",
+      "payload": {
+        "part": "part2",
+        "questions": [
+          "Describe someone you know who is very good at their job or a skill. You should say: who this person is, what they do, what makes them particularly good at it, and explain what you have learned from watching or knowing them."
+        ]
+      }
+    },
+    {
+      "setIndex": 4,
+      "band": "B1",
+      "payload": {
+        "part": "part2",
+        "questions": [
+          "Describe a book, film or TV show that had a strong effect on you. You should say: what it was, when you experienced it, what it was about, and explain why it had such a strong effect on you."
+        ]
+      }
+    },
+    {
+      "setIndex": 5,
+      "band": "B1",
+      "payload": {
+        "part": "part2",
+        "questions": [
+          "Describe a goal you are currently working towards or plan to achieve in the future. You should say: what the goal is, why you chose it, what steps you are taking to reach it, and explain how you will feel when you achieve it."
+        ]
+      }
+    }
+  ]
+}

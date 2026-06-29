@@ -1,0 +1,174 @@
+{
+  "generate:reading:B1": {
+    "title": "Public Libraries in the Digital Age",
+    "passage": "Public libraries have existed in some form for thousands of years, but the institution as we know it today — a free, publicly funded resource open to all citizens — is largely a product of the nineteenth century. In the United Kingdom, the Public Libraries Act of 1850 gave local councils the power to establish free lending libraries. Similar legislation followed across the United States, Canada, and Australia in the decades that followed.\n\nFor much of the twentieth century, the library's role was straightforward: it collected books, lent them to borrowers, and provided a quiet space for study. But the rise of the internet has disrupted this model profoundly. By the early 2000s, commentators were predicting the death of the public library, arguing that Google had made the card catalogue obsolete and that e-readers would replace physical books entirely.\n\nThese predictions have not come true. Library visitor numbers in many countries have either stabilised or increased in recent years. The reason is that libraries have adapted. Modern public libraries offer far more than books: they provide access to computers and high-speed internet for people who cannot afford them at home, host community events and children's reading programmes, offer job-seeking assistance, provide a warm and safe public space for elderly and isolated residents, and stock films, music, and e-books alongside print. Some libraries have introduced makerspaces — workshops equipped with 3D printers, laser cutters, and recording equipment — positioning themselves as creative community hubs.\n\nNevertheless, funding pressures are acute. In the UK, over eight hundred public libraries closed between 2010 and 2019 due to local government budget cuts. Staff numbers fell sharply. Critics argue that the remaining libraries are being hollowed out — kept open but deprived of the resources to serve their communities effectively. Defenders of the library point out that the institution serves people who have nowhere else to go and provides a social good that cannot be measured purely in footfall statistics.",
+    "questions": [
+      {
+        "stem": "The Public Libraries Act of 1850 was passed in the United States.",
+        "options": ["True", "False", "Not Given"],
+        "answer": "False",
+        "explanation": "The passage states the 1850 Act was in the United Kingdom, not the United States."
+      },
+      {
+        "stem": "Library visitor numbers have increased in all countries since the introduction of the internet.",
+        "options": ["True", "False", "Not Given"],
+        "answer": "False",
+        "explanation": "The passage says visitor numbers 'in many countries have either stabilised or increased', not in all countries."
+      },
+      {
+        "stem": "Modern libraries sometimes provide access to 3D printers and laser cutters.",
+        "options": ["True", "False", "Not Given"],
+        "answer": "True",
+        "explanation": "The passage mentions 'makerspaces — workshops equipped with 3D printers, laser cutters'."
+      }
+    ]
+  },
+  "generate:reading:B2": {
+    "title": "The Psychology of Colour in Marketing",
+    "passage": "Colour is one of the most powerful tools available to marketers and designers. Research consistently shows that colour affects perception, mood, and purchasing behaviour, often in ways that operate below conscious awareness. Within ninety seconds of first viewing a product, most consumers form an impression based primarily on colour alone; studies estimate that between sixty and ninety percent of subconscious product assessment is colour-based.\n\nDifferent colours carry distinct psychological associations, though these are not universal across cultures. In Western markets, blue is widely associated with trust, reliability, and calm — hence its popularity among banks and technology companies. Red creates urgency and excitement, which is why sale signs and fast-food branding frequently use it. Green signals health, nature, and environmental responsibility. Yellow attracts attention and conveys optimism, but can also evoke anxiety if overused. Luxury brands tend to favour black, white, and gold, which are associated with sophistication and exclusivity.\n\nHowever, marketers must be careful not to apply these associations too rigidly. Colour perception is shaped by context, brand history, and competitive environment. A colour that signals danger in one context may signal passion in another. Furthermore, colour preferences vary significantly by gender, age, and cultural background. In China and many other Asian cultures, red is strongly associated with good luck and prosperity rather than danger or urgency.\n\nThe practical implication for brands is that colour choices should be tested rigorously with target audiences rather than assumed based on general psychological models. Split testing — presenting two versions of a webpage or packaging with different colour schemes to random samples of users — has become a standard tool in digital marketing, allowing brands to measure the actual impact of colour changes on click-through rates and conversions.",
+    "questions": [
+      {
+        "stem": "Between 60 and 90 percent of subconscious product assessment is based on colour.",
+        "options": ["True", "False", "Not Given"],
+        "answer": "True",
+        "explanation": "This matches the statistic stated directly in the passage."
+      },
+      {
+        "stem": "In China, red is associated with danger rather than good luck.",
+        "options": ["True", "False", "Not Given"],
+        "answer": "False",
+        "explanation": "The passage states that in China 'red is strongly associated with good luck and prosperity rather than danger'."
+      },
+      {
+        "stem": "Split testing involves comparing two versions of a design with different colour schemes.",
+        "options": ["True", "False", "Not Given"],
+        "answer": "True",
+        "explanation": "The passage defines split testing as 'presenting two versions of a webpage or packaging with different colour schemes'."
+      }
+    ]
+  },
+  "generate:reading:C1": {
+    "title": "The Epistemology of Fake News",
+    "passage": "The term 'fake news' entered mainstream political discourse around 2016, but the underlying phenomenon — the deliberate production and dissemination of false or misleading information presented as journalism — is as old as the printing press. What is new is the scale, speed, and structural incentives that digital platforms have introduced. A false story shared on social media can reach millions of people within hours, while corrections and rebuttals, studies consistently show, travel far more slowly and reach far fewer people.\n\nThe psychological mechanisms that make misinformation sticky are well understood. Confirmation bias leads people to accept information that confirms their existing beliefs without scrutiny and to reject contradictory information with heightened scepticism. The illusory truth effect — the phenomenon whereby repeated exposure to a claim increases the perceived probability that it is true, regardless of its actual veracity — means that repetition itself is a vector of misinformation. Simply denying a claim, psychologists have found, can inadvertently reinforce it by increasing its salience in the reader's mind, a problem sometimes called the 'backfire effect'.\n\nDebunking strategies need to take account of these mechanisms. Research by the Behavioural Insights Team and others suggests that the most effective corrections are those that provide an alternative explanatory narrative rather than simply asserting that a claim is false. Telling people what is wrong is less effective than telling them what is actually true and why the false version is plausible but mistaken. Prebunking — exposing people to weakened forms of misinformation before they encounter it at full strength — has shown promising results in experimental settings, operating as a form of cognitive inoculation.\n\nHowever, even well-designed corrections leave a residual effect: corrected beliefs rarely return to their pre-misinformation state. This suggests that the most effective long-term strategy is not reactive correction but proactive media literacy education, equipping citizens with the critical-thinking tools to evaluate sources and claims independently. Several countries, including Finland, have introduced media literacy programmes across all levels of schooling with encouraging results.",
+    "questions": [
+      {
+        "stem": "The illusory truth effect means that a claim feels more credible the more times a person has encountered it.",
+        "options": ["True", "False", "Not Given"],
+        "answer": "True",
+        "explanation": "The passage defines the illusory truth effect as 'repeated exposure to a claim increases the perceived probability that it is true'."
+      },
+      {
+        "stem": "Simply denying misinformation is always effective at reducing belief in false claims.",
+        "options": ["True", "False", "Not Given"],
+        "answer": "False",
+        "explanation": "The passage warns that simply denying a claim 'can inadvertently reinforce it', referencing the 'backfire effect'."
+      },
+      {
+        "stem": "Finland has introduced media literacy education in schools.",
+        "options": ["True", "False", "Not Given"],
+        "answer": "True",
+        "explanation": "The passage explicitly mentions 'Finland' as a country that has introduced 'media literacy programmes across all levels of schooling'."
+      }
+    ]
+  },
+  "generate:listening:B1": {
+    "title": "Community Centre Activity Classes",
+    "transcript": "Good morning everyone and welcome to the Northfield Community Centre. I'm glad you could all come in to hear about our new programme of activities for the coming term. We've got a fantastic range of classes available, all designed for adults of all ages and fitness levels. Let me run through the highlights. Starting with fitness, we have a new yoga class on Tuesday and Thursday mornings from ten to eleven. This is a gentle class suitable for beginners, and there are mats provided so you don't need to bring any equipment. On Wednesday evenings from seven to eight thirty, we have a circuit training class — this one is a bit more energetic, so wear comfortable trainers. For creative activities, we have watercolour painting every Monday afternoon from two until four. The tutor, Margaret, has been teaching here for fifteen years and she's fantastic with complete beginners. Materials are included in the class fee. We also have a new pottery class starting the first week of next month — that's on Friday evenings, six to eight. There are only twelve spaces so you'll need to book quickly. All classes are five pounds per session if you are a registered member, or seven pounds for non-members. You can register at the front desk today, and registration is completely free. Any questions?",
+    "questions": [
+      {
+        "stem": "On which days is the yoga class held?",
+        "answer": "Tuesday and Thursday",
+        "explanation": "The speaker states the yoga class runs 'on Tuesday and Thursday mornings'."
+      },
+      {
+        "stem": "What do participants need to bring to the yoga class?",
+        "answer": "Nothing — mats are provided",
+        "explanation": "The speaker states 'there are mats provided so you don't need to bring any equipment'."
+      },
+      {
+        "stem": "How much does a class cost for registered members?",
+        "answer": "Five pounds",
+        "explanation": "The speaker states classes are 'five pounds per session if you are a registered member'."
+      },
+      {
+        "stem": "How many spaces are available in the pottery class?",
+        "answer": "Twelve",
+        "explanation": "The speaker states 'There are only twelve spaces so you'll need to book quickly'."
+      }
+    ]
+  },
+  "generate:listening:B2": {
+    "title": "Lecture Excerpt: The Economics of Happiness",
+    "transcript": "Good afternoon. Today I want to explore a question that sounds simple but turns out to be surprisingly complex: does money make people happy? The short answer, which you've probably heard before, is: up to a point, yes. Below a certain income threshold, more money reliably improves life satisfaction because it allows people to meet basic needs — food, shelter, healthcare, security. Above that threshold, the relationship becomes much more complicated. A famous 2010 study by Daniel Kahneman and Angus Deaton found that emotional wellbeing — how people feel day to day — stopped improving meaningfully beyond an annual income of around seventy-five thousand dollars in the United States at that time. Beyond that level, people reported higher overall life satisfaction when asked to evaluate their life, but they didn't actually experience more positive emotions on a daily basis. More recent research has challenged this finding slightly. A 2021 study by Matthew Killingsworth using a much larger dataset suggested that wellbeing continued to rise with income at higher levels, though with diminishing returns. The debate is ongoing. What is not disputed is that relative income matters as much as absolute income. People compare themselves to their neighbours, colleagues, and peers, and this comparison significantly shapes their sense of financial wellbeing. This is sometimes called the 'keeping up with the Joneses' effect. The implication for policy is uncomfortable: if relative position matters, then economic growth alone cannot make everyone happier, because as everyone gets richer, the comparison points shift upwards.",
+    "questions": [
+      {
+        "stem": "According to Kahneman and Deaton's 2010 study, at what income level did daily emotional wellbeing stop improving significantly?",
+        "answer": "Approximately $75,000 per year",
+        "explanation": "The speaker cites 'an annual income of around seventy-five thousand dollars'."
+      },
+      {
+        "stem": "What is the 'keeping up with the Joneses' effect?",
+        "answer": "People compare their income or wealth to those around them, which shapes their sense of financial wellbeing",
+        "explanation": "The speaker describes comparing to 'neighbours, colleagues, and peers' as shaping financial wellbeing, calling it the 'keeping up with the Joneses' effect."
+      },
+      {
+        "stem": "What does Killingsworth's 2021 study suggest about income and wellbeing at higher income levels?",
+        "answer": "Wellbeing continues to rise with income even at higher levels, though with diminishing returns",
+        "explanation": "The speaker states Killingsworth's data 'suggested that wellbeing continued to rise with income at higher levels, though with diminishing returns'."
+      },
+      {
+        "stem": "Why does the speaker say economic growth alone cannot make everyone happier?",
+        "answer": "Because as everyone gets richer, the comparison points shift upwards, so relative position does not improve",
+        "explanation": "The speaker explains 'as everyone gets richer, the comparison points shift upwards', meaning relative advantage does not change."
+      }
+    ]
+  },
+  "score:writing": {
+    "bands": {
+      "taskResponse": 5.5,
+      "coherenceCohesion": 5.5,
+      "lexicalResource": 5.0,
+      "grammaticalRange": 5.0,
+      "overall": 5.0
+    },
+    "cefr": "B1",
+    "corrections": [
+      {
+        "original": "In my opinion, I think that",
+        "fixed": "I believe that",
+        "note": "Avoid redundancy — 'In my opinion' and 'I think' express the same idea; use one."
+      },
+      {
+        "original": "There are many reasons for this problem",
+        "fixed": "This problem arises for several interconnected reasons",
+        "note": "More precise and academic phrasing; shows analytical thinking rather than listing."
+      },
+      {
+        "original": "people have less time for their families",
+        "fixed": "employees increasingly find it difficult to spend quality time with their families",
+        "note": "The revision is more specific and uses a more formal register appropriate for Task 2."
+      }
+    ],
+    "rewrite": "The increasing demand on employees to work longer and longer hours has become one of the most pressing social issues in many countries. While economic pressures and competitive workplace cultures are the primary drivers of this trend, the costs — both to individual health and to family cohesion — are well documented and difficult to ignore.\n\nThe roots of the problem are structural. In many industries, a culture of presenteeism has taken hold, whereby employees who leave at their contracted hours are perceived as less committed than those who stay late. Technology has exacerbated this by blurring the boundary between work and personal life; a smartphone means that an employee is, in principle, always reachable. Additionally, job insecurity — particularly in economies that have moved away from long-term employment contracts — incentivises individuals to work harder to protect their positions.\n\nAddressing these issues requires action at multiple levels. Governments could legislate stronger rights to disconnect, as France has done, making it unlawful for employers to expect responses to work messages outside contracted hours. Organisations could actively reward output rather than hours, shifting the culture away from presenteeism. At the individual level, setting clear boundaries and communicating them to managers — though easier said than done — is an important first step.\n\nIn conclusion, the prevalence of overwork is the product of systemic incentives rather than individual weakness, and addressing it requires systemic solutions alongside cultural change.",
+    "modelAnswer": "Long working hours have become normalised in many economies, causing measurable harm to workers' physical health, mental wellbeing, and family relationships. This essay will examine the main causes of this trend and propose measures that governments, employers, and individuals can take to reverse it.\n\nThe principal cause is competitive workplace culture. In many professional environments, working beyond contracted hours signals commitment and ambition, meaning those who do not comply risk career penalties. Technology compounds this by making workers permanently accessible through email and messaging apps. Furthermore, economic inequality and job insecurity lead many employees to overwork voluntarily for fear of redundancy.\n\nTo counter these pressures, governments should establish legal rights to disconnect from work communications outside contracted hours, as several European countries have done. Employers should restructure performance evaluations to reward measurable outcomes rather than time spent at a desk. More broadly, normalising the use of full annual leave allowances and parental leave without career penalty would help shift cultural expectations. Individuals, too, have a role: setting explicit work-hour boundaries and communicating them to managers may seem risky but is made safer when supported by policy.\n\nIn conclusion, overwork is a systemic problem requiring systemic solutions. Legal protections, cultural change within organisations, and individual assertiveness must work together if working hours are to return to sustainable levels."
+  },
+  "score:speaking": {
+    "bands": {
+      "fluencyCoherence": 5.0,
+      "lexicalResource": 5.0,
+      "grammaticalRange": 5.0,
+      "pronunciation": 5.0,
+      "overall": 5.0
+    },
+    "cefr": "B1",
+    "feedback": "You spoke for a reasonable length and addressed the topic, but your response would benefit from more development of each idea. You tended to list points without explaining them — for example, you said 'it is good for health' but didn't explain why or give an example. Try to follow each point with a reason or a brief personal example. Your grammar was mostly accurate at a simple level, but you avoided complex structures. Practise using conditionals, relative clauses, and reporting structures to raise your grammatical range score. Vocabulary was functional but limited — you used the same words ('good', 'important', 'difficult') repeatedly. Replacing these with more precise alternatives would improve your lexical resource score significantly.",
+    "modelAnswer": "I'd like to talk about something I learned relatively recently — playing the guitar. I'd always wanted to play but kept putting it off, thinking it was too late to start as an adult. About two years ago I finally enrolled in a beginners' class, and I found it genuinely difficult at first. The main challenge was developing calluses on my fingertips — for the first few weeks, pressing the steel strings was quite painful, and I couldn't hold chords for long without stopping. I also found it hard to coordinate both hands independently, since the left hand forms the chord while the right hand strums. What eventually helped me was practising for just fifteen minutes every day rather than long irregular sessions. Consistency made a much bigger difference than I expected. By the third month I could play several complete songs, and the feeling of satisfaction when I realised I'd learned something I thought was beyond me was genuinely one of the most rewarding experiences I've had as an adult.",
+    "vocabUpgrades": [
+      {"from": "good for you", "to": "beneficial"},
+      {"from": "very difficult", "to": "genuinely challenging"},
+      {"from": "I think", "to": "I would argue"},
+      {"from": "a lot of", "to": "a considerable amount of"},
+      {"from": "make you happy", "to": "contribute to a sense of fulfilment"}
+    ]
+  }
+}

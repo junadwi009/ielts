@@ -1,0 +1,42 @@
+{
+  "reading": {
+    "title": "Reading strategy",
+    "bullets": [
+      "Skim first for gist: read the title, headings, and first sentence of each paragraph before tackling questions",
+      "Scan for keyword detail: locate the section of the text that matches the question topic before reading closely",
+      "For True/False/Not Given: TRUE = the text explicitly agrees, FALSE = the text explicitly contradicts, NOT GIVEN = the information is simply absent — watch for paraphrase",
+      "For Matching Headings: identify the main idea of each paragraph (usually in the first or last sentence) and match it to the heading bank",
+      "Manage time: roughly 20 minutes per passage; if stuck on one question, move on and return later — do not leave blanks"
+    ]
+  },
+  "listening": {
+    "title": "Listening strategy",
+    "bullets": [
+      "Predict answers from the question wording before the audio begins — think about what type of information is needed (name, number, place, reason)",
+      "Listen for synonyms and paraphrases, not the exact words in the question",
+      "Mind spelling, number formats, and word limits — 'no more than TWO words' means exactly that",
+      "If you miss one answer, move on immediately — the audio plays only once and getting behind costs more answers",
+      "Use the example answer at the start of Section 1 to tune your ear to the accents and pace"
+    ]
+  },
+  "writing": {
+    "title": "Writing strategy",
+    "bullets": [
+      "Task 2 introduction: paraphrase the prompt in your own words, then state your clear position — do not copy the question",
+      "Each body paragraph: topic sentence → explanation → specific example → result/implication → linking phrase to next idea",
+      "Aim for 270–320 words; fluent, accurate paragraphs beat long, error-filled ones every time",
+      "The Band 6→7 jump is depth of explanation and precise vocabulary, not rare or obscure words",
+      "Task 1 academic: always include an overview sentence summarising the key trend or most striking feature; report what the data shows, do not give your opinion"
+    ]
+  },
+  "speaking": {
+    "title": "Speaking strategy",
+    "bullets": [
+      "Part 2: use the 1-minute prep time to jot keywords (not full sentences) for each bullet on the cue card; speak for the full 2 minutes",
+      "Develop every idea — give a reason or example rather than just listing facts; never recite a memorised script",
+      "You are assessed on four equal criteria: Fluency and Coherence, Lexical Resource, Grammatical Range and Accuracy, Pronunciation",
+      "Natural hesitation fillers ('well', 'let me think') are fine; long silent pauses hurt fluency — keep speaking even if imperfect",
+      "Part 3 asks abstract or opinion questions: give a clear position, support it with an example or consequence, then briefly acknowledge a counter-view"
+    ]
+  }
+}

@@ -1,0 +1,675 @@
+[
+  {
+    "comboId": 1,
+    "targetMinutes": 50,
+    "sections": {
+      "listening": {
+        "seconds": 720,
+        "clips": [
+          {
+            "title": "Renting a Flat",
+            "transcript": "Agent: Good morning, Sunrise Lettings, how can I help you? Caller: Hello, I'm calling about the two-bedroom flat on Maple Street. Is it still available? Agent: Yes, it is. It became vacant last Monday. Caller: Great. What's the monthly rent? Agent: It's seven hundred and fifty pounds per month, not including bills. Caller: And is there parking? Agent: Yes, there's one space in the garage at the back. Caller: Could I arrange a viewing? I'm free on Thursday afternoon. Agent: Thursday is fine. Shall we say two thirty? Caller: Perfect. My name is Sandra Hewitt — that's H-E-W-I-T-T. Agent: Got it, Sandra Hewitt at two thirty on Thursday. Can I take a contact number? Caller: Sure, it's zero seven nine one, double four, three six eight. Agent: Zero seven nine one, four four, three six eight — thank you. Is there anything else? Caller: Yes, one more thing. Does the flat allow pets? I have a small dog. Agent: I'll need to check with the landlord on that. I can confirm by email. Caller: That would be great. My email is sandraH at gmail dot com. Agent: Lovely, we'll be in touch."
+          },
+          {
+            "title": "Urban Farming Talk",
+            "transcript": "Welcome, everyone, to this afternoon's talk on urban farming. My name is Dr. Priya Nair, and I've been researching city food production for the past twelve years. Today I want to cover three main points: why urban farms matter, the most common techniques being used, and some of the challenges we still face. So, why does urban farming matter? The world's population is increasingly concentrated in cities — by 2050 we expect roughly two-thirds of all people to live in urban areas. That creates enormous pressure on supply chains that move food from rural farms to city supermarkets. A single head of lettuce can travel over a thousand kilometres before it reaches your plate, losing freshness and generating carbon emissions along the way. Urban farms cut that distance dramatically. The most popular technique right now is hydroponics, where plants are grown in nutrient-rich water rather than soil. It uses up to ninety percent less water than conventional agriculture and can be set up in warehouses, rooftops, even underground car parks. A second method gaining ground is vertical farming, stacking growing trays in towers under LED lighting. The main challenge for both systems is energy cost: those artificial lights are expensive to run. So the viability of urban farms depends heavily on how quickly renewable energy prices continue to fall. I'll leave it there for questions."
+          }
+        ]
+      },
+      "reading": {
+        "seconds": 840,
+        "title": "The Science of Sleep",
+        "passage": "Sleep is one of the most fundamental requirements of human biology, yet it remains one of the least understood. For much of history, sleep was regarded simply as a passive state — a nightly shutdown during which the brain rested. Decades of neuroscientific research have overturned that view entirely. We now know that sleep is an intensely active process, characterised by complex patterns of brain activity that perform critical maintenance work on the body and mind.\n\nThe sleep cycle consists of two broad phases that alternate throughout the night. The first is non-rapid-eye-movement sleep, or NREM, which itself has three stages of increasing depth. During the deepest stage, slow-wave sleep, the brain emits large, synchronised electrical waves while the body repairs tissues, builds bone and muscle, and strengthens the immune system. The second phase, rapid-eye-movement sleep, or REM, is the stage most associated with dreaming. Brain activity during REM resembles that of wakefulness, with fast, irregular electrical patterns and, paradoxically, near-complete muscle paralysis — a mechanism that prevents the sleeper from physically acting out their dreams.\n\nOne of the most significant recent discoveries concerns the brain's waste-disposal system, known as the glymphatic network. During sleep, particularly deep NREM sleep, cerebrospinal fluid flows more rapidly through the brain, flushing out metabolic waste products that accumulate during waking hours. Among these waste products is beta-amyloid, a protein fragment strongly associated with Alzheimer's disease. Chronic sleep deprivation, even at moderate levels, has been shown to accelerate the accumulation of beta-amyloid, raising the alarming possibility that poor sleep over decades may be a contributing factor in the development of dementia.\n\nSleep requirements vary across the human lifespan. Newborns spend approximately sixteen hours per day asleep, a reflection of the extraordinary pace of brain development in early life. Teenagers require around nine hours, driven partly by biological changes in their circadian rhythm that delay the natural sleep onset until late evening — a shift that has led many health experts to advocate for later school start times. Adults typically need seven to nine hours, though this range conceals significant individual variation. A small fraction of the population carries a genetic variant that allows them to function well on just six hours, but for most people, habitual short sleep accumulates a 'sleep debt' with measurable cognitive consequences.\n\nThe practical implications of sleep science are wide-ranging. Workplaces that allow brief napping have reported productivity gains and reductions in error rates. Hospitals that have reformed shift patterns to reduce overnight stretches for junior doctors report fewer medical mistakes. And athletes who extend their sleep to nine or ten hours during training show improvements in reaction time and accuracy. The evidence, in short, consistently points in the same direction: sleep is not time wasted but time invested."
+      },
+      "writing": {
+        "seconds": 840,
+        "taskType": "task2",
+        "targetWords": 150,
+        "prompt": "In many countries, people are working longer hours than ever before, and this is having a negative effect on their health and family life. What are the causes of this problem, and what measures could be taken to address it? Give reasons for your answer and include any relevant examples from your own knowledge or experience."
+      },
+      "speaking": {
+        "seconds": 540,
+        "part1": [
+          "Do you prefer to live in a city or in the countryside? Why?",
+          "How do you usually spend your weekends?",
+          "Do you think people in your country get enough sleep? Why or why not?"
+        ],
+        "part2": {
+          "cue": "Describe a time when you learned something new that was difficult at first.\n\nYou should say:\n  - what you learned\n  - why it was difficult\n  - how you eventually managed to learn it\nand explain how you felt once you had mastered it."
+        },
+        "part3": [
+          "Do you think adults and children learn new skills in the same way? What are the main differences?"
+        ]
+      }
+    },
+    "items": [
+      {
+        "skill": "listening",
+        "bandTag": "A1A2",
+        "type": "form_completion",
+        "payload": {
+          "stem": "Day and time of the viewing appointment:",
+          "answer": "Thursday 2:30"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "A1A2",
+        "type": "form_completion",
+        "payload": {
+          "stem": "The caller's surname:",
+          "answer": "Hewitt"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B1",
+        "type": "mcq",
+        "payload": {
+          "stem": "What is the monthly rent for the flat?",
+          "options": ["£650", "£750", "£850", "£950"],
+          "answer": "£750"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B1",
+        "type": "mcq",
+        "payload": {
+          "stem": "What parking facility is available at the flat?",
+          "options": ["Street parking only", "A driveway at the front", "A space in a garage", "No parking"],
+          "answer": "A space in a garage"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B1",
+        "type": "form_completion",
+        "payload": {
+          "stem": "The caller's phone number:",
+          "answer": "07914436 8"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B2",
+        "type": "mcq",
+        "payload": {
+          "stem": "According to Dr. Nair, what is the main reason urban farming is important for cities?",
+          "options": [
+            "It creates jobs for unemployed city residents",
+            "It reduces the long supply chain from rural farms to urban consumers",
+            "It is cheaper than buying food in supermarkets",
+            "It produces higher-quality food than conventional farming"
+          ],
+          "answer": "It reduces the long supply chain from rural farms to urban consumers"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B2",
+        "type": "mcq",
+        "payload": {
+          "stem": "What does Dr. Nair identify as the main challenge facing urban farms?",
+          "options": [
+            "Lack of suitable buildings",
+            "Difficulty obtaining water",
+            "High energy costs for artificial lighting",
+            "Resistance from traditional farmers"
+          ],
+          "answer": "High energy costs for artificial lighting"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B2",
+        "type": "matching",
+        "payload": {
+          "stem": "Match the farming technique to its description: 'Plants grow in nutrient-rich water without soil'",
+          "options": ["Hydroponics", "Vertical farming", "Conventional agriculture", "Rooftop gardening"],
+          "answer": "Hydroponics"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "C1",
+        "type": "mcq",
+        "payload": {
+          "stem": "What percentage of the world's population is expected to live in urban areas by 2050, according to Dr. Nair?",
+          "options": ["About half", "Roughly two-thirds", "Nearly three-quarters", "Just over one-third"],
+          "answer": "Roughly two-thirds"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "C2",
+        "type": "mcq",
+        "payload": {
+          "stem": "What is the implied conclusion of Dr. Nair's talk regarding the future viability of urban farming?",
+          "options": [
+            "Urban farming will replace conventional agriculture entirely within twenty years",
+            "Urban farming's economic success is closely tied to the cost trajectory of renewable energy",
+            "Urban farming is currently more profitable than conventional farming in most cities",
+            "Urban farming will remain a niche activity due to insurmountable technical barriers"
+          ],
+          "answer": "Urban farming's economic success is closely tied to the cost trajectory of renewable energy"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "reading",
+        "bandTag": "A1A2",
+        "type": "tfng",
+        "payload": {
+          "stem": "During slow-wave sleep, the body repairs tissues and strengthens the immune system.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "True"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "A1A2",
+        "type": "tfng",
+        "payload": {
+          "stem": "Dreaming occurs mainly during the NREM phase of sleep.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "False"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B1",
+        "type": "tfng",
+        "payload": {
+          "stem": "The glymphatic network removes waste products from the brain during sleep.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "True"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B1",
+        "type": "tfng",
+        "payload": {
+          "stem": "Beta-amyloid is a protein associated with Parkinson's disease.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "False"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B1",
+        "type": "mcq",
+        "payload": {
+          "stem": "According to the passage, what is the primary reason teenagers need more sleep than adults?",
+          "options": [
+            "They are more physically active than adults",
+            "Biological changes delay their natural sleep onset",
+            "Their brains are fully developed and require more maintenance",
+            "They accumulate more beta-amyloid during the day"
+          ],
+          "answer": "Biological changes delay their natural sleep onset"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B1",
+        "type": "short_answer",
+        "payload": {
+          "stem": "What term does the passage use for the state of near-complete muscle inactivity that occurs during REM sleep?",
+          "answer": "muscle paralysis"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B2",
+        "type": "heading_match",
+        "payload": {
+          "stem": "Choose the best heading for the paragraph beginning 'Sleep is one of the most fundamental requirements...'",
+          "options": [
+            "i. A passive process misunderstood for centuries",
+            "ii. Rethinking sleep as an active biological process",
+            "iii. The history of neuroscience and brain imaging",
+            "iv. Why modern people do not sleep enough"
+          ],
+          "answer": "ii. Rethinking sleep as an active biological process"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B2",
+        "type": "tfng",
+        "payload": {
+          "stem": "Most adults need between seven and nine hours of sleep, though individual variation exists.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "True"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B2",
+        "type": "mcq",
+        "payload": {
+          "stem": "What evidence does the passage give that workplace napping is beneficial?",
+          "options": [
+            "Workers who nap report feeling happier",
+            "Productivity increases and error rates fall",
+            "Napping reduces absenteeism significantly",
+            "Employees prefer napping to coffee breaks"
+          ],
+          "answer": "Productivity increases and error rates fall"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B2",
+        "type": "heading_match",
+        "payload": {
+          "stem": "Choose the best heading for the paragraph beginning 'Sleep requirements vary across the human lifespan...'",
+          "options": [
+            "i. Why children sleep more than adults",
+            "ii. Individual differences in sleep genetics",
+            "iii. How sleep needs change from birth to adulthood",
+            "iv. The consequences of a national sleep crisis"
+          ],
+          "answer": "iii. How sleep needs change from birth to adulthood"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "C1",
+        "type": "short_answer",
+        "payload": {
+          "stem": "What specific protein fragment associated with Alzheimer's disease accumulates in the brain during periods of sleep deprivation? (Use the word from the passage)",
+          "answer": "beta-amyloid"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "C1",
+        "type": "mcq",
+        "payload": {
+          "stem": "The author describes REM sleep brain activity as 'paradoxically' accompanied by near-complete muscle paralysis. Why is this described as a paradox?",
+          "options": [
+            "Because the brain is active while the body is paralysed — the opposite of what we expect in normal waking states",
+            "Because deep sleep usually causes greater muscle relaxation than REM sleep",
+            "Because REM sleep produces dreams that mimic real physical activity",
+            "Because paralysis normally indicates brain damage, not healthy sleep"
+          ],
+          "answer": "Because the brain is active while the body is paralysed — the opposite of what we expect in normal waking states"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "C2",
+        "type": "mcq",
+        "payload": {
+          "stem": "The final paragraph's argument is best described as:",
+          "options": [
+            "A qualified endorsement of napping as a workplace policy",
+            "A call for government regulation of working hours to protect sleep",
+            "A synthesis of evidence showing sleep's productivity value, reframing it from waste to investment",
+            "A warning that sleep deprivation is now at crisis levels in most developed countries"
+          ],
+          "answer": "A synthesis of evidence showing sleep's productivity value, reframing it from waste to investment"
+        },
+        "sectionSeconds": 840
+      }
+    ]
+  },
+  {
+    "comboId": 2,
+    "targetMinutes": 50,
+    "sections": {
+      "listening": {
+        "seconds": 720,
+        "clips": [
+          {
+            "title": "Joining a Library",
+            "transcript": "Librarian: Welcome to Westgate Public Library, how can I help? Visitor: Hi, I'd like to join the library please. Librarian: Of course. I just need a few details. Could I have your full name? Visitor: Yes, it's Marcus Chen — C-H-E-N. Librarian: Marcus Chen. And your address? Visitor: Forty-two, Birchwood Road, Bristol. Postcode BS eight, four LT. Librarian: Perfect. Date of birth? Visitor: The fifteenth of March, nineteen ninety-two. Librarian: Great. Now, membership is free, but we do ask for a small deposit of five pounds for a library card, which is refunded when you return it. Visitor: That's fine. Can I borrow DVDs as well as books? Librarian: Yes, you can borrow up to three DVDs at once. Books, the limit is eight. Visitor: How long can I keep them? Librarian: Books are three weeks, DVDs are one week. Late returns attract a small daily fine — ten pence per day for books and fifty pence per day for DVDs. Visitor: Good to know. Do you have an online renewal system? Librarian: Yes, you can renew up to three times online, as long as nobody else has reserved the item. Visitor: That's really convenient. Thank you."
+          },
+          {
+            "title": "Climate Change and Coastal Cities",
+            "transcript": "Good afternoon. Today I want to discuss the specific challenge that climate change poses to coastal cities. We often talk about climate change in global terms, but the most concrete and immediate impacts are local. Coastal cities face three interconnected threats: rising sea levels, more intense storm surges, and saltwater intrusion into freshwater supplies. Let me take each in turn. Sea levels are rising primarily because warming oceans expand and because land ice — glaciers and ice sheets — is melting. Current projections suggest a rise of between half a metre and one metre by the end of this century, though some models put the upper limit higher. For cities like Jakarta, Miami, and Amsterdam, even half a metre of permanent inundation would displace millions of residents from low-lying neighbourhoods. Storm surges are temporary but can be catastrophic. Warmer sea surface temperatures fuel more powerful tropical storms, meaning that when a storm hits a coastal city, the surge that accompanies it is higher and travels further inland. New Orleans experienced this with Hurricane Katrina in 2005. Saltwater intrusion is perhaps the least visible threat. As sea levels rise and coastal aquifers are overpumped, salt water seeps into underground freshwater reserves, making them unusable for drinking or irrigation. This is already a serious problem in parts of Bangladesh and Vietnam. The good news — if there is any — is that we have proven solutions: sea walls, mangrove restoration, green roofs that slow rainfall run-off, and managed retreat of communities away from the highest-risk zones. The question is whether cities act early enough and invest at sufficient scale."
+          }
+        ]
+      },
+      "reading": {
+        "seconds": 840,
+        "title": "The History and Science of Coffee",
+        "passage": "Coffee is one of the most widely consumed beverages in the world, yet few of the millions who drink it each day pause to consider its remarkable journey from Ethiopian highland to global commodity. According to popular legend, coffee was discovered around the ninth century by an Ethiopian goatherd named Kaldi, who noticed that his goats became unusually energetic after eating berries from a certain tree. While the Kaldi story is charming, historians note that the earliest credible accounts of coffee consumption come from Sufi monasteries in Yemen during the fifteenth century, where monks used the beverage to stay alert during long nocturnal prayers.\n\nFrom Yemen, coffee spread rapidly across the Islamic world, and by the sixteenth century coffeehouses — called qahveh khaneh — had become important social and cultural institutions in cities from Cairo to Constantinople. They were places where men gathered to discuss politics, play chess, and listen to music. Indeed, coffeehouses were so influential that they were sometimes described as 'schools of the wise.' Coffee reached Europe in the seventeenth century, initially via Venice. Within decades, coffeehouses had sprung up across the continent, often serving as the birthplace of important cultural and commercial innovations. Lloyd's of London, now one of the world's leading insurance markets, began as a coffeehouse frequented by merchants and sailors.\n\nThe active compound responsible for coffee's stimulating effects is caffeine, a natural alkaloid found in the seeds, leaves, and fruit of several plants. Caffeine works by blocking adenosine receptors in the brain. Adenosine is a chemical that accumulates during waking hours and progressively promotes sleepiness; by preventing adenosine from binding to its receptors, caffeine temporarily suppresses this tiredness signal and promotes alertness. The effect typically peaks thirty to sixty minutes after consumption and has a half-life of approximately five hours, meaning that a cup of coffee drunk at four in the afternoon still has half its caffeine active at nine in the evening.\n\nScientific research into coffee's health effects has produced surprisingly positive findings in recent decades. Moderate consumption — defined as three to four cups per day — has been consistently associated with a reduced risk of type 2 diabetes, Parkinson's disease, and liver cirrhosis. A large-scale study published in the New England Journal of Medicine found that moderate coffee drinkers had significantly lower mortality rates than non-drinkers. Researchers caution, however, that coffee is not a medicine and that heavy consumption can cause anxiety, disrupted sleep, elevated heart rate, and dependency.\n\nThe global coffee industry today generates over two hundred billion dollars annually and provides livelihoods for an estimated 125 million people worldwide, the majority in developing countries. However, the industry faces serious sustainability challenges. Climate change is steadily reducing the area of land suitable for growing high-quality Arabica beans, which require a narrow temperature range and specific rainfall patterns. Projections suggest that up to half of current coffee-growing land could become unsuitable by 2050. At the same time, leaf rust — a fungal disease — has devastated crops in Central America, reducing yields by as much as seventy percent in some regions. The future of your morning cup of coffee depends, in no small part, on how successfully the industry and governments respond to these environmental pressures."
+      },
+      "writing": {
+        "seconds": 840,
+        "taskType": "task2",
+        "targetWords": 150,
+        "prompt": "Some people believe that the internet has made it easier for people to access information and stay connected. Others argue that it has caused people to become more isolated and less able to think critically. Discuss both views and give your own opinion."
+      },
+      "speaking": {
+        "seconds": 540,
+        "part1": [
+          "Do you enjoy cooking? What kinds of food do you usually make?",
+          "How often do you use public transport in your city?",
+          "Are you interested in science? Did you enjoy science at school?"
+        ],
+        "part2": {
+          "cue": "Describe a place in nature that you find beautiful or relaxing.\n\nYou should say:\n  - where this place is\n  - what it looks like\n  - when you first visited it\nand explain why you find it beautiful or relaxing."
+        },
+        "part3": [
+          "Do you think governments should do more to protect natural environments, even if it means limiting economic development? Why or why not?"
+        ]
+      }
+    },
+    "items": [
+      {
+        "skill": "listening",
+        "bandTag": "A1A2",
+        "type": "form_completion",
+        "payload": {
+          "stem": "The visitor's surname:",
+          "answer": "Chen"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "A1A2",
+        "type": "form_completion",
+        "payload": {
+          "stem": "The card deposit amount:",
+          "answer": "five pounds"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B1",
+        "type": "mcq",
+        "payload": {
+          "stem": "How many DVDs can the visitor borrow at one time?",
+          "options": ["One", "Two", "Three", "Five"],
+          "answer": "Three"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B1",
+        "type": "mcq",
+        "payload": {
+          "stem": "What is the daily fine for an overdue DVD?",
+          "options": ["5p", "10p", "20p", "50p"],
+          "answer": "50p"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B1",
+        "type": "form_completion",
+        "payload": {
+          "stem": "Maximum number of online renewals permitted:",
+          "answer": "three"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B2",
+        "type": "mcq",
+        "payload": {
+          "stem": "According to the speaker, what are the two main causes of rising sea levels?",
+          "options": [
+            "Increased rainfall and evaporation from the ocean",
+            "Expanding warm water and melting land ice",
+            "Overfishing and destruction of coral reefs",
+            "Deforestation and increased river flow"
+          ],
+          "answer": "Expanding warm water and melting land ice"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B2",
+        "type": "matching",
+        "payload": {
+          "stem": "Match the threat to its description: 'Salt water seeps into underground freshwater reserves'",
+          "options": ["Storm surge", "Sea level rise", "Saltwater intrusion", "Coastal erosion"],
+          "answer": "Saltwater intrusion"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "B2",
+        "type": "mcq",
+        "payload": {
+          "stem": "Which city does the speaker use as an example of storm surge damage?",
+          "options": ["Jakarta", "Miami", "Amsterdam", "New Orleans"],
+          "answer": "New Orleans"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "C1",
+        "type": "mcq",
+        "payload": {
+          "stem": "What does the speaker imply when saying 'The good news — if there is any'?",
+          "options": [
+            "The speaker is optimistic that climate change will be fully reversed",
+            "The speaker acknowledges that even known solutions may not be implemented at sufficient scale or speed",
+            "The speaker believes the problem is too minor to require urgent action",
+            "The speaker is referring specifically to economic benefits of sea wall construction"
+          ],
+          "answer": "The speaker acknowledges that even known solutions may not be implemented at sufficient scale or speed"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "listening",
+        "bandTag": "C2",
+        "type": "mcq",
+        "payload": {
+          "stem": "What is the overall rhetorical purpose of the lecture?",
+          "options": [
+            "To argue that coastal cities should be abandoned immediately due to climate threats",
+            "To explain the science of climate change and its specific local consequences, while acknowledging both risk and agency",
+            "To compare different political responses to climate change across coastal nations",
+            "To persuade the audience to donate to coastal conservation charities"
+          ],
+          "answer": "To explain the science of climate change and its specific local consequences, while acknowledging both risk and agency"
+        },
+        "sectionSeconds": 720
+      },
+      {
+        "skill": "reading",
+        "bandTag": "A1A2",
+        "type": "tfng",
+        "payload": {
+          "stem": "According to the passage, the story of Kaldi the goatherd is supported by reliable historical evidence.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "False"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "A1A2",
+        "type": "tfng",
+        "payload": {
+          "stem": "Coffeehouses in the Islamic world were used for social gatherings including chess and music.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "True"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B1",
+        "type": "tfng",
+        "payload": {
+          "stem": "Caffeine works by binding directly to adenosine and destroying it.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "False"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B1",
+        "type": "tfng",
+        "payload": {
+          "stem": "Moderate coffee consumption has been associated with a lower risk of type 2 diabetes.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "True"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B1",
+        "type": "short_answer",
+        "payload": {
+          "stem": "What is the half-life of caffeine in the human body, according to the passage?",
+          "answer": "approximately five hours"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B1",
+        "type": "mcq",
+        "payload": {
+          "stem": "Which famous financial institution originated as a coffeehouse?",
+          "options": ["The Bank of England", "Lloyd's of London", "The Royal Exchange", "Goldman Sachs"],
+          "answer": "Lloyd's of London"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B2",
+        "type": "heading_match",
+        "payload": {
+          "stem": "Choose the best heading for the paragraph beginning 'The active compound responsible...'",
+          "options": [
+            "i. How caffeine affects the brain's chemistry",
+            "ii. The discovery of adenosine in the twentieth century",
+            "iii. Why decaffeinated coffee is less popular",
+            "iv. The long-term risks of caffeine dependency"
+          ],
+          "answer": "i. How caffeine affects the brain's chemistry"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B2",
+        "type": "tfng",
+        "payload": {
+          "stem": "The global coffee industry provides livelihoods for approximately 125 million people.",
+          "options": ["True", "False", "Not Given"],
+          "answer": "True"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B2",
+        "type": "mcq",
+        "payload": {
+          "stem": "What does the passage identify as the main environmental threat to Arabica coffee cultivation?",
+          "options": [
+            "Soil exhaustion from intensive farming",
+            "Climate change reducing suitable growing land",
+            "Water shortages caused by overpumping of aquifers",
+            "The spread of invasive insect species"
+          ],
+          "answer": "Climate change reducing suitable growing land"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "B2",
+        "type": "heading_match",
+        "payload": {
+          "stem": "Choose the best heading for the paragraph beginning 'From Yemen, coffee spread rapidly...'",
+          "options": [
+            "i. The rise of coffeehouses in the Islamic world and Europe",
+            "ii. Why merchants preferred coffee to alcohol",
+            "iii. The colonisation of Africa and the coffee trade",
+            "iv. Coffee's role in the industrial revolution"
+          ],
+          "answer": "i. The rise of coffeehouses in the Islamic world and Europe"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "C1",
+        "type": "mcq",
+        "payload": {
+          "stem": "The researchers' caution about coffee health findings ('coffee is not a medicine') suggests:",
+          "options": [
+            "The health benefits of coffee have been exaggerated by the coffee industry",
+            "Correlation between coffee consumption and lower disease risk does not prove that coffee directly causes improved health",
+            "Coffee drinkers generally have healthier lifestyles that account for the observed benefits",
+            "The studies cited used flawed methodology and should be disregarded"
+          ],
+          "answer": "Correlation between coffee consumption and lower disease risk does not prove that coffee directly causes improved health"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "C1",
+        "type": "short_answer",
+        "payload": {
+          "stem": "What fungal disease has severely reduced coffee yields in Central America? (Use the term from the passage)",
+          "answer": "leaf rust"
+        },
+        "sectionSeconds": 840
+      },
+      {
+        "skill": "reading",
+        "bandTag": "C2",
+        "type": "mcq",
+        "payload": {
+          "stem": "The closing sentence — 'The future of your morning cup of coffee depends, in no small part, on how successfully the industry and governments respond to these environmental pressures' — is best understood as:",
+          "options": [
+            "A scientific prediction based on the passage's data",
+            "A rhetorical device that makes the abstract threats personal and immediate for the reader",
+            "An advertisement for sustainable coffee brands",
+            "A policy recommendation directed at international governing bodies"
+          ],
+          "answer": "A rhetorical device that makes the abstract threats personal and immediate for the reader"
+        },
+        "sectionSeconds": 840
+      }
+    ]
+  }
+]
