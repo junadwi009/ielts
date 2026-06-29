@@ -63,50 +63,75 @@ export const Generating: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex min-h-full flex-col items-center justify-center gap-8 p-6">
-      <div className="w-full max-w-md flex flex-col gap-6">
-        <h1 className="text-xl font-semibold text-center text-[var(--color-text)]">
-          Personalising your practice plan…
-        </h1>
+    <div className="journey-bg flex min-h-full flex-col items-center justify-center gap-8 p-6">
+      <div className="animate-fade-slide-in w-full max-w-md flex flex-col gap-6">
+        {/* Heading */}
+        <div className="text-center flex flex-col gap-2">
+          <h1 className="text-2xl font-bold text-[var(--color-text)] tracking-tight">
+            Building your plan…
+          </h1>
+          <p className="text-sm text-[var(--color-muted)]">
+            Usually a few seconds. Hang tight!
+          </p>
+        </div>
 
-        {/* stepped checklist */}
-        <ul className="flex flex-col gap-3" role="list">
-          {STEPS.map((label, i) => (
-            <li
-              key={label}
-              className={[
-                "flex items-center gap-3 rounded-[var(--radius-md)] px-4 py-3",
-                "bg-[var(--color-surface)] border border-[var(--color-border)]",
-                i < stepIdx ? "opacity-50" : i === stepIdx ? "opacity-100" : "opacity-30",
-              ].join(" ")}
-            >
-              <span
+        {/* Stepped checklist — elevated rows */}
+        <ul className="flex flex-col gap-2" role="list">
+          {STEPS.map((label, i) => {
+            const isDone = i < stepIdx;
+            const isActive = i === stepIdx;
+            return (
+              <li
+                key={label}
                 className={[
-                  "h-2 w-2 rounded-full flex-shrink-0",
-                  i < stepIdx
-                    ? "bg-[var(--color-success)]"
-                    : i === stepIdx
-                    ? "bg-[var(--color-primary-600)] animate-pulse"
-                    : "bg-[var(--color-border)]",
+                  "flex items-center gap-3 rounded-[var(--radius-lg)] px-4 py-3",
+                  "border transition-[opacity,box-shadow]",
+                  isDone
+                    ? "bg-[var(--color-surface)] border-[var(--color-border)] opacity-60"
+                    : isActive
+                    ? "bg-[var(--color-surface)] border-[var(--color-primary-600)] opacity-100"
+                    : "bg-[var(--color-surface)] border-[var(--color-border)] opacity-30",
                 ].join(" ")}
-                aria-hidden="true"
-              />
-              <span className="text-sm text-[var(--color-text)]">{label}</span>
-            </li>
-          ))}
+                style={isActive ? { boxShadow: "var(--shadow-e2)" } : { boxShadow: "var(--shadow-e1)" }}
+              >
+                {/* Status indicator */}
+                {isDone ? (
+                  <span
+                    className="h-5 w-5 rounded-full flex-shrink-0 flex items-center justify-center"
+                    style={{ background: "color-mix(in srgb, var(--color-success) 15%, transparent)" }}
+                    aria-hidden="true"
+                  >
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 4L3.5 6.5L9 1" stroke="var(--color-success)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </span>
+                ) : isActive ? (
+                  <span
+                    className="h-5 w-5 rounded-full flex-shrink-0 border-2 border-[var(--color-primary-600)] animate-pulse"
+                    style={{ background: "color-mix(in srgb, var(--color-primary-600) 20%, transparent)" }}
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <span
+                    className="h-5 w-5 rounded-full flex-shrink-0 bg-[var(--color-border)]"
+                    aria-hidden="true"
+                  />
+                )}
+                <span className="text-sm font-medium text-[var(--color-text)]">{label}</span>
+              </li>
+            );
+          })}
         </ul>
 
+        {/* Progress bar */}
         <ProgressBar value={progress} max={100} label="Generating practice content" />
 
+        {/* aria-live status for screen readers */}
         <p
-          className="text-center text-sm text-[var(--color-muted)]"
+          className="text-center text-sm text-[var(--color-muted)] sr-only"
           aria-live="polite"
         >
           {STEPS[stepIdx]}
-        </p>
-
-        <p className="text-center text-xs text-[var(--color-muted)] opacity-70">
-          Usually takes a few seconds. Hang tight!
         </p>
       </div>
     </div>

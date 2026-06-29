@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { api } from "../../lib/api/client";
 import type { Tips as TipsData } from "../../lib/types";
 import { Card } from "../ui/Card";
@@ -65,8 +66,10 @@ export const Tips: React.FC = () => {
 
   return (
     <main className="flex-1 overflow-y-auto">
-      <div className="sticky top-0 bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 py-3 z-10">
-        <h1 className="text-base font-semibold text-[var(--color-text)]">Tips</h1>
+      <div className="sticky top-0 bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 py-3 z-10"
+        style={{ boxShadow: "var(--shadow-e1)" }}
+      >
+        <h1 className="text-base font-semibold text-[var(--color-text)] tracking-tight">Tips</h1>
       </div>
 
       <div className="p-4 md:p-6 max-w-2xl mx-auto flex flex-col gap-3">
@@ -77,22 +80,29 @@ export const Tips: React.FC = () => {
 
           return (
             <Card key={skill} className="p-0 overflow-hidden">
-              {/* Accordion trigger */}
+              {/* Accordion trigger — rounded header, chevron rotate */}
               <button
                 type="button"
                 id={headingId}
                 aria-expanded={section.open}
                 aria-controls={panelId}
                 onClick={() => toggleSection(skill)}
-                className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-[var(--color-text)] hover:bg-[var(--color-surface-2)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]"
+                className={[
+                  "w-full flex items-center justify-between px-5 py-4",
+                  "text-sm font-semibold text-[var(--color-text)] transition-colors",
+                  "hover:bg-[var(--color-surface-2)]",
+                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
+                ].join(" ")}
               >
                 <span>{SKILL_LABELS[skill]}</span>
-                <span
+                <ChevronDown
+                  size={16}
                   aria-hidden="true"
-                  className={`transition-transform duration-200 ${section.open ? "rotate-180" : ""}`}
-                >
-                  ▾
-                </span>
+                  className={[
+                    "text-[var(--color-muted)] transition-transform",
+                    section.open ? "rotate-180" : "",
+                  ].join(" ")}
+                />
               </button>
 
               {/* Accordion panel */}
@@ -101,27 +111,34 @@ export const Tips: React.FC = () => {
                   id={panelId}
                   role="region"
                   aria-labelledby={headingId}
-                  className="px-4 pb-4"
+                  className="px-5 pb-5 border-t border-[var(--color-border)]"
                 >
                   {section.loading && (
-                    <p className="text-xs text-[var(--color-muted)]">Loading…</p>
+                    <p className="text-xs text-[var(--color-muted)] pt-4">Loading…</p>
                   )}
                   {section.error && (
-                    <p className="text-xs text-[var(--color-danger)]">{section.error}</p>
+                    <p className="text-xs text-[var(--color-danger)] pt-4">{section.error}</p>
                   )}
                   {section.data && (
-                    <>
+                    <div className="pt-4">
                       {section.data.title && (
-                        <p className="text-xs font-medium text-[var(--color-muted)] uppercase tracking-wide mb-2">
+                        <p className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-widest mb-3">
                           {section.data.title}
                         </p>
                       )}
-                      <ul className="flex flex-col gap-1 text-sm text-[var(--color-text)] leading-relaxed list-disc list-inside">
+                      <ul className="flex flex-col gap-2.5">
                         {section.data.bullets.map((bullet, i) => (
-                          <li key={i}>{bullet}</li>
+                          <li
+                            key={i}
+                            className="flex gap-3 text-sm text-[var(--color-text)] leading-relaxed"
+                            style={{ fontFamily: "var(--font-reading)" }}
+                          >
+                            <span className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-primary-600)]" aria-hidden="true" />
+                            <span>{bullet}</span>
+                          </li>
                         ))}
                       </ul>
-                    </>
+                    </div>
                   )}
                 </div>
               )}

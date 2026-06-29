@@ -25,17 +25,21 @@ export const SpeakingSection: React.FC<SpeakingSectionProps> = ({
   setValue,
 }) => {
   return (
-    <div className="flex flex-col gap-6 max-w-2xl">
+    <div className="flex flex-col gap-7 max-w-2xl">
       {/* Part 1 */}
       {section.part1.length > 0 && (
         <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wide">
-            Part 1 — Introduction & Interview
+          <h2 className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-widest">
+            Part 1 — Introduction &amp; Interview
           </h2>
           <ol className="flex flex-col gap-2">
             {section.part1.map((q, i) => (
-              <li key={i} className="text-sm text-[var(--color-text)] flex gap-2">
-                <span className="text-[var(--color-muted)] shrink-0">{i + 1}.</span>
+              <li
+                key={i}
+                className="flex gap-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] leading-relaxed"
+                style={{ boxShadow: "var(--shadow-e1)" }}
+              >
+                <span className="text-[var(--color-muted)] shrink-0 tabular-nums">{i + 1}.</span>
                 <span>{q}</span>
               </li>
             ))}
@@ -46,10 +50,10 @@ export const SpeakingSection: React.FC<SpeakingSectionProps> = ({
       {/* Part 2 */}
       {section.part2?.cue && (
         <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wide">
+          <h2 className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-widest">
             Part 2 — Individual Long Turn
           </h2>
-          <Card variant="stat" className="text-sm text-[var(--color-text)]">
+          <Card variant="stat" className="text-sm text-[var(--color-text)] leading-relaxed border-l-4 border-l-[var(--color-primary-600)]">
             {section.part2.cue}
           </Card>
         </div>
@@ -58,13 +62,17 @@ export const SpeakingSection: React.FC<SpeakingSectionProps> = ({
       {/* Part 3 */}
       {section.part3.length > 0 && (
         <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wide">
+          <h2 className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-widest">
             Part 3 — Two-way Discussion
           </h2>
           <ol className="flex flex-col gap-2">
             {section.part3.map((q, i) => (
-              <li key={i} className="text-sm text-[var(--color-text)] flex gap-2">
-                <span className="text-[var(--color-muted)] shrink-0">{i + 1}.</span>
+              <li
+                key={i}
+                className="flex gap-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] leading-relaxed"
+                style={{ boxShadow: "var(--shadow-e1)" }}
+              >
+                <span className="text-[var(--color-muted)] shrink-0 tabular-nums">{i + 1}.</span>
                 <span>{q}</span>
               </li>
             ))}
@@ -72,23 +80,34 @@ export const SpeakingSection: React.FC<SpeakingSectionProps> = ({
         </div>
       )}
 
-      {/* Record placeholder */}
-      <div className="flex items-center gap-3 p-4 rounded-[var(--radius-md)] border border-dashed border-[var(--color-border)] bg-[var(--color-surface-2)]">
+      {/* Record placeholder — styled */}
+      <div
+        className="flex items-center gap-4 p-5 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-primary-600)] bg-[color-mix(in_srgb,var(--color-primary-600)_5%,transparent)]"
+      >
         <div
           aria-hidden="true"
-          className="w-10 h-10 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-muted)]"
+          className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+          style={{
+            background: "linear-gradient(135deg, var(--color-primary-600), var(--color-primary-800))",
+            boxShadow: "var(--shadow-e2)",
+          }}
         >
-          <Mic size={18} />
+          <Mic size={20} className="text-white" />
         </div>
-        <p className="text-sm text-[var(--color-muted)]">
-          Recording button placeholder — speech recognition coming soon
-        </p>
+        <div>
+          <p className="text-sm font-medium text-[var(--color-text)]">
+            Speech recording — coming soon
+          </p>
+          <p className="text-xs text-[var(--color-muted)] mt-0.5">
+            For now, type your responses in the box below
+          </p>
+        </div>
       </div>
 
       {/* Typed transcript fallback */}
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium text-[var(--color-primary-600)] uppercase tracking-wide">
-          Typed transcript (ASR deferred — Phase 1 fallback)
+        <p className="text-xs font-semibold text-[var(--color-primary-600)] uppercase tracking-widest">
+          Your typed response
         </p>
         <Textarea
           label="Type or paste what you would say (speech recognition coming soon)"

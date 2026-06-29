@@ -43,9 +43,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ levels }) => {
     <nav
       aria-label="Main navigation"
       className="flex flex-col h-full w-64 bg-[var(--color-surface)] border-r border-[var(--color-border)] py-4"
+      style={{ boxShadow: "var(--shadow-e1)" }}
     >
-      <div className="px-4 mb-6">
-        <span className="text-lg font-bold text-[var(--color-primary-600)]">IELTS Coach</span>
+      {/* Brand mark */}
+      <div className="px-4 mb-6 flex items-center gap-2.5">
+        <div
+          className="flex items-center justify-center w-8 h-8 rounded-[var(--radius-md)] shrink-0"
+          style={{
+            background: "linear-gradient(135deg, var(--color-primary-600), var(--color-primary-800))",
+            boxShadow: "var(--shadow-e2)",
+          }}
+          aria-hidden="true"
+        >
+          <BookOpen size={14} className="text-white" />
+        </div>
+        <span className="text-sm font-bold text-[var(--color-text)] tracking-tight">IELTS Coach</span>
       </div>
 
       <ul className="flex-1 flex flex-col gap-0.5 px-2" role="list">
@@ -58,10 +70,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ levels }) => {
                 onClick={() => setView(entry.view)}
                 aria-current={isActive ? "page" : undefined}
                 className={[
-                  "w-full flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-medium transition-colors min-h-[44px]",
+                  "w-full flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-medium",
+                  "transition-[background-color,color] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
+                  "min-h-[44px]",
                   isActive
-                    ? "bg-[color-mix(in_srgb,var(--color-primary-600)_12%,transparent)] text-[var(--color-primary-600)]"
-                    : "text-[var(--color-text)] hover:bg-[var(--color-surface-2)]",
+                    ? "bg-[var(--color-primary-50)] text-[var(--color-primary-700)]"
+                    : "text-[var(--color-text-2)] hover:bg-[var(--color-surface-2)] hover:text-[var(--color-text)]",
                 ]
                   .filter(Boolean)
                   .join(" ")}
@@ -80,10 +94,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ levels }) => {
           onClick={() => setView("settings")}
           aria-current={view === "settings" ? "page" : undefined}
           className={[
-            "w-full flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-medium transition-colors min-h-[44px]",
+            "w-full flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-medium",
+            "transition-[background-color,color] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
+            "min-h-[44px]",
             view === "settings"
-              ? "bg-[color-mix(in_srgb,var(--color-primary-600)_12%,transparent)] text-[var(--color-primary-600)]"
-              : "text-[var(--color-text)] hover:bg-[var(--color-surface-2)]",
+              ? "bg-[var(--color-primary-50)] text-[var(--color-primary-700)]"
+              : "text-[var(--color-text-2)] hover:bg-[var(--color-surface-2)] hover:text-[var(--color-text)]",
           ]
             .filter(Boolean)
             .join(" ")}

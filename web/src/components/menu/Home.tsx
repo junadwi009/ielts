@@ -1,4 +1,5 @@
 import React from "react";
+import { BookOpen, Headphones, Mic, PenLine } from "lucide-react";
 import { Card } from "../ui/Card";
 import { Button } from "../ui/Button";
 import { LevelChip } from "../ui/LevelChip";
@@ -10,11 +11,11 @@ interface HomeProps {
   levels: Record<string, CefrBand>;
 }
 
-const SKILLS: { skill: Skill; label: string; next: CefrBand }[] = [
-  { skill: "reading", label: "Reading", next: "C2" },
-  { skill: "listening", label: "Listening", next: "B2" },
-  { skill: "speaking", label: "Speaking", next: "B2" },
-  { skill: "writing", label: "Writing", next: "B2" },
+const SKILLS: { skill: Skill; label: string; icon: React.ReactNode }[] = [
+  { skill: "reading", label: "Reading", icon: <BookOpen size={18} aria-hidden="true" /> },
+  { skill: "listening", label: "Listening", icon: <Headphones size={18} aria-hidden="true" /> },
+  { skill: "speaking", label: "Speaking", icon: <Mic size={18} aria-hidden="true" /> },
+  { skill: "writing", label: "Writing", icon: <PenLine size={18} aria-hidden="true" /> },
 ];
 
 const NEXT_BAND: Record<CefrBand, CefrBand> = {
@@ -29,38 +30,47 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
   const { setView } = useView();
 
   return (
-    <main className="flex-1 overflow-y-auto p-4 md:p-6">
+    <main className="flex-1 overflow-y-auto p-4 md:p-6 max-w-2xl">
       <h1 className="text-2xl font-bold tracking-tight text-[var(--color-text)] mb-6">
         Dashboard
       </h1>
 
-      {/* Today card */}
+      {/* Today hero card — brand-tinted with accent left border */}
       <section aria-labelledby="today-heading" className="mb-6">
-        <Card variant="hero" className="flex items-center justify-between gap-4">
+        <div
+          className="rounded-[var(--radius-xl)] p-5 flex items-center justify-between gap-4 border-l-4 border-l-[var(--color-primary-600)]"
+          style={{
+            background: "color-mix(in srgb, var(--color-primary-50) 60%, var(--color-surface))",
+            border: "1px solid color-mix(in srgb, var(--color-primary-600) 20%, transparent)",
+            borderLeft: "4px solid var(--color-primary-600)",
+            boxShadow: "var(--shadow-e2)",
+          }}
+        >
           <div>
-            <h2 id="today-heading" className="text-lg font-semibold mb-1">Today</h2>
-            <p className="text-sm opacity-80">Continue your next practice session</p>
+            <h2 id="today-heading" className="text-base font-semibold text-[var(--color-text)] mb-0.5">
+              Today
+            </h2>
+            <p className="text-sm text-[var(--color-muted)]">Continue your next practice session</p>
           </div>
           <Button
-            variant="secondary"
             onClick={() => setView("reading")}
             className="shrink-0"
           >
             Start
           </Button>
-        </Card>
+        </div>
       </section>
 
-      {/* Skill map */}
+      {/* Skill map — 2×2 elevated interactive cards */}
       <section aria-labelledby="skills-heading" className="mb-6">
         <h2
           id="skills-heading"
-          className="text-base font-semibold text-[var(--color-text)] mb-3 tracking-tight"
+          className="text-sm font-semibold text-[var(--color-muted)] mb-3 tracking-tight uppercase"
         >
           Your Skills
         </h2>
         <div className="grid grid-cols-2 gap-3">
-          {SKILLS.map(({ skill, label }) => {
+          {SKILLS.map(({ skill, label, icon }) => {
             const band = levels[skill];
             const nextBand = band ? NEXT_BAND[band] : "B1";
             return (
@@ -70,11 +80,17 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
                 className="cursor-pointer"
                 onClick={() => setView(skill)}
               >
-                <div className="flex items-start justify-between mb-2">
-                  <span className="text-sm font-semibold text-[var(--color-text)]">{label}</span>
+                <div className="flex items-start justify-between mb-3">
+                  <span
+                    className="flex items-center justify-center w-8 h-8 rounded-[var(--radius-md)] text-[var(--color-primary-600)]"
+                    style={{ background: "color-mix(in srgb, var(--color-primary-600) 10%, transparent)" }}
+                  >
+                    {icon}
+                  </span>
                   {band && <LevelChip band={band} />}
                 </div>
-                <p className="text-xs text-[var(--color-muted)]">
+                <p className="text-sm font-semibold text-[var(--color-text)]">{label}</p>
+                <p className="text-xs text-[var(--color-muted)] mt-0.5">
                   {band ? `Targeting ${nextBand}` : "Not assessed yet"}
                 </p>
               </Card>
@@ -87,12 +103,12 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
       <section aria-labelledby="milestones-heading" className="mb-6">
         <h2
           id="milestones-heading"
-          className="text-base font-semibold text-[var(--color-text)] mb-3 tracking-tight"
+          className="text-sm font-semibold text-[var(--color-muted)] mb-3 tracking-tight uppercase"
         >
           Milestone Progress
         </h2>
         <Card>
-          <div className="h-2.5 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
+          <div className="h-2 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
             <div
               className="h-full rounded-full bg-[var(--color-primary-600)] transition-[width]"
               style={{ width: "30%" }}
@@ -112,7 +128,7 @@ export const Home: React.FC<HomeProps> = ({ levels }) => {
       <section aria-labelledby="quicklinks-heading">
         <h2
           id="quicklinks-heading"
-          className="text-base font-semibold text-[var(--color-text)] mb-3 tracking-tight"
+          className="text-sm font-semibold text-[var(--color-muted)] mb-3 tracking-tight uppercase"
         >
           Quick Access
         </h2>

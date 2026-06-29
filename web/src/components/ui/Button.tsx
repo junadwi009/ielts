@@ -56,8 +56,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           "transition-[background-color,box-shadow,transform,border-color,color]",
           "transition-duration-[var(--duration-base)] ease-[var(--ease-default)]",
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
-          // Disabled: keep saturated bg, just reduce opacity
-          "disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none",
+          // Disabled: clean muted state — not a washed-out version of the active colour
+          "disabled:bg-[var(--color-surface-2)] disabled:text-[var(--color-muted)] disabled:border-transparent",
+          "disabled:shadow-none disabled:cursor-not-allowed disabled:pointer-events-none",
           variantClasses[variant],
           sizeClasses[size],
           fullWidth ? "w-full" : "",

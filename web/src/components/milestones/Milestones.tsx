@@ -28,50 +28,64 @@ export const Milestones: React.FC = () => {
   }
 
   return (
-    <div className="flex min-h-full flex-col gap-6 p-6 max-w-lg mx-auto">
-      <div className="flex flex-col gap-1">
-        <h1 className="text-2xl font-bold text-[var(--color-text)]">
+    <div className="journey-bg flex min-h-full flex-col gap-7 p-6 max-w-lg mx-auto">
+      <div className="animate-fade-slide-in flex flex-col gap-2">
+        <h1 className="text-2xl font-bold text-[var(--color-text)] tracking-tight">
           Your milestones
         </h1>
-        <p className="text-sm text-[var(--color-muted)]">
-          Track your progress toward each skill target.
+        <p className="text-sm text-[var(--color-muted)] leading-relaxed">
+          Each milestone is a checkpoint — reach the target levels by the day shown.
         </p>
       </div>
 
-      <ol className="flex flex-col gap-4 list-none">
-        {milestones.map((m) => (
-          <li
-            key={m.idx}
-            className="flex flex-col gap-2 p-4 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)]"
-          >
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wide">
-                Day {m.dayTarget}
-              </span>
-            </div>
-            <p className="text-sm font-semibold text-[var(--color-text)]">
-              {m.title}
-            </p>
-            {m.targets && Object.keys(m.targets).length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {Object.entries(m.targets).map(([skill, band]) => (
-                  <span
-                    key={skill}
-                    className="inline-flex items-center gap-1"
-                  >
-                    <span className="text-xs text-[var(--color-muted)]">
-                      {SKILL_LABELS[skill] ?? skill}
-                    </span>
-                    <LevelChip band={band as CefrBand} />
-                  </span>
-                ))}
+      {/* Vertical stepper */}
+      <ol className="flex flex-col list-none" role="list">
+        {milestones.map((m, stepIdx) => {
+          const isLast = stepIdx === milestones.length - 1;
+          return (
+            <li key={m.idx} className="flex gap-4">
+              {/* Left column: node + connecting line */}
+              <div className="flex flex-col items-center">
+                {/* Node */}
+                <div
+                  className="flex items-center justify-center w-9 h-9 rounded-full shrink-0 border-2 border-[var(--color-primary-600)] bg-[var(--color-surface)] text-xs font-bold tabular-nums text-[var(--color-primary-700)]"
+                  style={{ boxShadow: "var(--shadow-e2)" }}
+                >
+                  {m.dayTarget}
+                </div>
+                {/* Connecting line */}
+                {!isLast && (
+                  <div className="w-0.5 flex-1 my-1 bg-[var(--color-border)]" />
+                )}
               </div>
-            )}
-          </li>
-        ))}
+
+              {/* Right column: content */}
+              <div className={["flex flex-col gap-2 pb-6 flex-1", isLast ? "pb-0" : ""].join(" ")}>
+                <p className="text-sm font-semibold text-[var(--color-text)] leading-snug">
+                  {m.title}
+                </p>
+                {m.targets && Object.keys(m.targets).length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {Object.entries(m.targets).map(([skill, band]) => (
+                      <span
+                        key={skill}
+                        className="inline-flex items-center gap-1.5"
+                      >
+                        <span className="text-xs text-[var(--color-muted)]">
+                          {SKILL_LABELS[skill] ?? skill}
+                        </span>
+                        <LevelChip band={band as CefrBand} />
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })}
       </ol>
 
-      <div className="pt-2">
+      <div className="pt-1">
         <Button
           size="lg"
           onClick={() => go("app")}

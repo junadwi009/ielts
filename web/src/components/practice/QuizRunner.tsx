@@ -132,11 +132,17 @@ export const QuizRunner: React.FC<QuizRunnerProps> = ({ skill, band, mode }) => 
   const n = set.questions.length;
   const statuses: QuizStatus[] = Array.from({ length: n }, (_, i) => getStatus(i));
 
+  const correct = correctCount();
+  const pct = n > 0 ? Math.round((correct / n) * 100) : 0;
+
   return (
     <main className="flex-1 overflow-y-auto">
       {/* Header */}
-      <div className="sticky top-0 bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 py-3 flex items-center gap-3 z-10">
-        <h1 className="text-base font-semibold text-[var(--color-text)] capitalize flex-1">
+      <div
+        className="sticky top-0 bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 py-3 flex items-center gap-3 z-10"
+        style={{ boxShadow: "var(--shadow-e1)" }}
+      >
+        <h1 className="text-base font-semibold text-[var(--color-text)] capitalize flex-1 tracking-tight">
           {skill}
         </h1>
         {band && <LevelChip band={band} />}
@@ -158,13 +164,28 @@ export const QuizRunner: React.FC<QuizRunnerProps> = ({ skill, band, mode }) => 
           />
         </div>
 
-        {/* Score card (after submit) */}
+        {/* Score card (after submit) — polished big tabular-nums score */}
         {submitted && (
-          <Card className="mb-4 flex items-center gap-4 bg-[var(--color-surface-2)]">
-            <span className="text-2xl font-bold text-[var(--color-text)]">
-              {correctCount()} / {n}
-            </span>
-            <span className="text-sm text-[var(--color-muted)]">correct</span>
+          <Card
+            className="mb-6 flex items-center gap-5"
+            style={{
+              background: pct >= 70
+                ? "color-mix(in srgb, var(--color-success) 8%, var(--color-surface))"
+                : "color-mix(in srgb, var(--color-warning) 8%, var(--color-surface))",
+              border: `1px solid ${pct >= 70 ? "color-mix(in srgb, var(--color-success) 25%, transparent)" : "color-mix(in srgb, var(--color-warning) 25%, transparent)"}`,
+            }}
+          >
+            <div className="flex flex-col">
+              <span
+                className="text-4xl font-bold tabular-nums leading-none"
+                style={{ color: pct >= 70 ? "var(--color-success)" : "var(--color-warning)" }}
+              >
+                {correct}/{n}
+              </span>
+              <span className="text-sm text-[var(--color-muted)] mt-1">
+                {pct}% correct
+              </span>
+            </div>
             <Button variant="secondary" size="sm" className="ml-auto" onClick={load}>
               New set
             </Button>
@@ -172,17 +193,19 @@ export const QuizRunner: React.FC<QuizRunnerProps> = ({ skill, band, mode }) => 
         )}
 
         {/* Two-pane layout for reading */}
-        <div className={mode === "reading" && set.passage ? "md:grid md:grid-cols-2 md:gap-6" : ""}>
-          {/* Passage / Transcript */}
+        <div className={mode === "reading" && set.passage ? "md:grid md:grid-cols-2 md:gap-8" : ""}>
+          {/* Passage — Lexend 18px lh 1.7 ~66ch */}
           {mode === "reading" && set.passage && (
             <div className="mb-4 md:mb-0">
               <Card className="h-full">
-                <p
-                  className="text-[var(--color-text)] leading-relaxed max-w-[66ch]"
-                  style={{ fontSize: "1.125rem" }}
+                <div
+                  className="text-[var(--color-text)] leading-[1.7] max-w-[66ch]"
+                  style={{ fontSize: "1.125rem", fontFamily: "var(--font-reading)" }}
                 >
-                  {set.passage}
-                </p>
+                  {set.passage.split("\n").map((para, i) => (
+                    <p key={i} className="mb-4 last:mb-0">{para}</p>
+                  ))}
+                </div>
               </Card>
             </div>
           )}
@@ -208,8 +231,11 @@ export const QuizRunner: React.FC<QuizRunnerProps> = ({ skill, band, mode }) => 
                 </div>
                 {showTranscript && set.transcript && (
                   <div className="mt-3 border-t border-[var(--color-border)] pt-3">
-                    <p className="text-xs font-medium text-[var(--color-muted)] mb-1">Transcript</p>
-                    <p className="text-sm text-[var(--color-text)] leading-relaxed">
+                    <p className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-widest mb-2">Transcript</p>
+                    <p
+                      className="text-sm text-[var(--color-text)] leading-relaxed"
+                      style={{ fontFamily: "var(--font-reading)" }}
+                    >
                       {set.transcript}
                     </p>
                   </div>

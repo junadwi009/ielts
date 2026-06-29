@@ -30,19 +30,19 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({
   );
 
   return (
-    <div className="md:grid md:grid-cols-2 md:gap-6 flex flex-col gap-6">
-      {/* Left pane: passage */}
-      <div className="flex flex-col gap-3">
-        <h2 className="text-base font-semibold text-[var(--color-text)]">
+    <div className="md:grid md:grid-cols-2 md:gap-8 flex flex-col gap-6">
+      {/* Left pane: passage — Lexend 18px / lh 1.7 / ~66ch */}
+      <div className="flex flex-col gap-4">
+        <h2 className="text-base font-semibold text-[var(--color-text)] tracking-tight">
           {section.title}
         </h2>
         <div
           aria-label="Reading passage"
           className="text-[18px] leading-[1.7] max-w-[66ch] text-[var(--color-text)]"
-          style={{ fontFamily: "var(--font-reading, Georgia, serif)" }}
+          style={{ fontFamily: "var(--font-reading)" }}
         >
           {section.passage.split("\n").map((para, i) => (
-            <p key={i} className="mb-3">
+            <p key={i} className="mb-4">
               {para}
             </p>
           ))}
@@ -51,7 +51,7 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({
 
       {/* Right pane: questions */}
       <div className="flex flex-col gap-4">
-        <h2 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wide">
+        <h2 className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-widest">
           Questions
         </h2>
 
@@ -64,7 +64,7 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({
           />
         )}
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
           {items.map((item, qi) => {
             const payload = item.payload as { stem: string; options?: string[] };
             const hasOptions = Array.isArray(payload.options) && payload.options.length > 0;
@@ -74,10 +74,11 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({
                 key={item.id}
                 id={`rq-${qi}`}
                 data-qi={qi}
-                className="flex flex-col gap-2"
+                className="flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4"
+                style={{ boxShadow: "var(--shadow-e1)" }}
               >
-                <p className="text-sm font-medium text-[var(--color-text)]">
-                  <span className="text-[var(--color-muted)] mr-2">{qi + 1}.</span>
+                <p className="text-sm font-medium text-[var(--color-text)] leading-relaxed">
+                  <span className="text-[var(--color-muted)] mr-2 tabular-nums">{qi + 1}.</span>
                   {payload.stem}
                 </p>
 
@@ -88,7 +89,12 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({
                       {payload.options!.map((opt) => (
                         <label
                           key={opt}
-                          className="flex items-center gap-2 cursor-pointer text-sm text-[var(--color-text)]"
+                          className={[
+                            "flex items-center gap-2.5 cursor-pointer text-sm rounded-[var(--radius-md)] px-3 py-2 border transition-colors",
+                            answers[item.id] === opt
+                              ? "border-[var(--color-primary-600)] bg-[color-mix(in_srgb,var(--color-primary-600)_8%,transparent)] text-[var(--color-primary-700)]"
+                              : "border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-surface-2)]",
+                          ].join(" ")}
                         >
                           <input
                             type="radio"
@@ -99,7 +105,7 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({
                               setAnswer(item.id, opt);
                               setCurrentQ(qi);
                             }}
-                            className="w-4 h-4 accent-[var(--color-primary-600)]"
+                            className="sr-only"
                           />
                           {opt}
                         </label>
@@ -115,7 +121,7 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({
                       setAnswer(item.id, e.target.value);
                       setCurrentQ(qi);
                     }}
-                    className="px-3 py-2 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] text-sm text-[var(--color-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]"
+                    className="min-h-11 px-3 py-2 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] text-sm text-[var(--color-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]"
                     placeholder="Your answer"
                   />
                 )}

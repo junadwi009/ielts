@@ -23,17 +23,26 @@ export const BottomTabs: React.FC = () => {
     <nav
       aria-label="Bottom navigation"
       className="fixed bottom-0 left-0 right-0 bg-[var(--color-surface)] border-t border-[var(--color-border)] pb-[env(safe-area-inset-bottom)] z-50"
+      style={{ boxShadow: "0 -2px 12px -4px rgba(15,23,42,.10)" }}
     >
       <ul className="flex items-stretch" role="list">
         {TABS.map((tab) => {
           const isActive = view === tab.view;
           return (
-            <li key={tab.view} className="flex-1">
+            <li key={tab.view} className="flex-1 relative">
+              {/* Active indicator bar at top */}
+              {isActive && (
+                <span
+                  className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-full bg-[var(--color-primary-600)]"
+                  aria-hidden="true"
+                />
+              )}
               <button
                 onClick={() => setView(tab.view)}
                 aria-current={isActive ? "page" : undefined}
                 className={[
-                  "w-full flex flex-col items-center justify-center gap-1 py-2 min-h-[56px] text-xs font-medium transition-colors",
+                  "w-full flex flex-col items-center justify-center gap-1 py-2 min-h-[56px] text-xs font-semibold",
+                  "transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
                   isActive
                     ? "text-[var(--color-primary-600)]"
                     : "text-[var(--color-muted)] hover:text-[var(--color-text)]",

@@ -47,10 +47,10 @@ export const ListeningSection: React.FC<ListeningSectionProps> = ({
   );
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 max-w-2xl">
       {/* Audio clips */}
       <div className="flex flex-col gap-3">
-        <h2 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wide">
+        <h2 className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-widest">
           Audio Clips
         </h2>
         {!hasSpeechSynthesis && (
@@ -61,19 +61,31 @@ export const ListeningSection: React.FC<ListeningSectionProps> = ({
         {section.clips.map((clip, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 p-3 rounded-[var(--radius-md)] bg-[var(--color-surface-2)] border border-[var(--color-border)]"
+            className="flex items-center gap-4 p-4 rounded-[var(--radius-lg)] bg-[var(--color-surface)] border border-[var(--color-border)]"
+            style={{ boxShadow: "var(--shadow-e1)" }}
           >
+            {/* Styled play button */}
             <button
               type="button"
               onClick={() => playClip(i)}
               disabled={played.has(i) || !hasSpeechSynthesis}
               aria-label={`Play clip: ${clip.title}`}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[var(--radius-md)] bg-[var(--color-primary-600)] text-white text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[var(--color-primary-700)] transition-colors"
+              className={[
+                "inline-flex items-center justify-center w-10 h-10 rounded-full shrink-0 transition-[background-color,box-shadow,transform]",
+                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]",
+                played.has(i) || !hasSpeechSynthesis
+                  ? "bg-[var(--color-surface-2)] text-[var(--color-muted)] cursor-not-allowed"
+                  : "bg-[var(--color-primary-600)] text-white hover:bg-[var(--color-primary-700)] hover:shadow-[var(--shadow-e2)] active:scale-95",
+              ].join(" ")}
             >
-              <Play size={14} aria-hidden="true" />
-              {played.has(i) ? "Played" : "Play"}
+              <Play size={16} aria-hidden="true" />
             </button>
-            <span className="text-sm text-[var(--color-text)]">{clip.title}</span>
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-medium text-[var(--color-text)] truncate">{clip.title}</span>
+              <span className="text-xs text-[var(--color-muted)]">
+                {played.has(i) ? "Played" : "Tap to play once"}
+              </span>
+            </div>
           </div>
         ))}
       </div>
@@ -89,7 +101,7 @@ export const ListeningSection: React.FC<ListeningSectionProps> = ({
       )}
 
       {/* Questions */}
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         {items.map((item, qi) => {
           const payload = item.payload as { stem: string; options?: string[] };
           const hasOptions = Array.isArray(payload.options) && payload.options.length > 0;
@@ -99,10 +111,11 @@ export const ListeningSection: React.FC<ListeningSectionProps> = ({
               key={item.id}
               id={`q-${qi}`}
               data-qi={qi}
-              className="flex flex-col gap-2"
+              className="flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4"
+              style={{ boxShadow: "var(--shadow-e1)" }}
             >
-              <p className="text-sm font-medium text-[var(--color-text)]">
-                <span className="text-[var(--color-muted)] mr-2">{qi + 1}.</span>
+              <p className="text-sm font-medium text-[var(--color-text)] leading-relaxed">
+                <span className="text-[var(--color-muted)] mr-2 tabular-nums">{qi + 1}.</span>
                 {payload.stem}
               </p>
 
@@ -113,7 +126,12 @@ export const ListeningSection: React.FC<ListeningSectionProps> = ({
                     {payload.options!.map((opt) => (
                       <label
                         key={opt}
-                        className="flex items-center gap-2 cursor-pointer text-sm text-[var(--color-text)]"
+                        className={[
+                          "flex items-center gap-2.5 cursor-pointer text-sm rounded-[var(--radius-md)] px-3 py-2 border transition-colors",
+                          answers[item.id] === opt
+                            ? "border-[var(--color-primary-600)] bg-[color-mix(in_srgb,var(--color-primary-600)_8%,transparent)] text-[var(--color-primary-700)]"
+                            : "border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-surface-2)]",
+                        ].join(" ")}
                       >
                         <input
                           type="radio"
@@ -124,7 +142,7 @@ export const ListeningSection: React.FC<ListeningSectionProps> = ({
                             setAnswer(item.id, opt);
                             setCurrentQ(qi);
                           }}
-                          className="w-4 h-4 accent-[var(--color-primary-600)]"
+                          className="sr-only"
                         />
                         {opt}
                       </label>
@@ -140,7 +158,7 @@ export const ListeningSection: React.FC<ListeningSectionProps> = ({
                     setAnswer(item.id, e.target.value);
                     setCurrentQ(qi);
                   }}
-                  className="px-3 py-2 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] text-sm text-[var(--color-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]"
+                  className="min-h-11 px-3 py-2 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] text-sm text-[var(--color-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-600)]"
                   placeholder="Your answer"
                 />
               )}

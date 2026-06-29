@@ -55,12 +55,12 @@ export const Program: React.FC = () => {
   }
 
   return (
-    <div className="flex min-h-full flex-col gap-6 p-6 max-w-lg mx-auto">
-      <div className="flex flex-col gap-1">
-        <h1 className="text-2xl font-bold text-[var(--color-text)]">
+    <div className="journey-bg flex min-h-full flex-col gap-7 p-6 max-w-lg mx-auto">
+      <div className="animate-fade-slide-in flex flex-col gap-2">
+        <h1 className="text-2xl font-bold text-[var(--color-text)] tracking-tight leading-tight">
           Choose your program
         </h1>
-        <p className="text-sm text-[var(--color-muted)]">
+        <p className="text-sm text-[var(--color-muted)] leading-relaxed">
           We recommend the{" "}
           <strong className="text-[var(--color-text)]">{recommended}-day plan</strong>{" "}
           based on your gap to target.
@@ -77,22 +77,28 @@ export const Program: React.FC = () => {
           return (
             <div key={days} className="relative">
               {isRecommended && (
-                <div className="absolute -top-2 right-3 z-10">
+                <div className="absolute -top-2.5 right-4 z-10">
                   <Badge tone="success">Recommended</Badge>
                 </div>
               )}
-              <RadioCard
-                selected={selected === days}
-                onSelect={() => setSelected(days)}
-                title={`${days}-day plan`}
-                description={`${intensity} · ${note}`}
-              />
+              <div
+                className={isRecommended && selected !== days
+                  ? "ring-2 ring-[var(--color-accent-500)] ring-offset-2 rounded-[var(--radius-lg)]"
+                  : ""}
+              >
+                <RadioCard
+                  selected={selected === days}
+                  onSelect={() => setSelected(days)}
+                  title={`${days}-day plan`}
+                  description={`${intensity} · ${note}`}
+                />
+              </div>
             </div>
           );
         })}
       </div>
 
-      <div className="pt-2">
+      <div className="pt-1">
         <Button
           size="lg"
           loading={loading}
