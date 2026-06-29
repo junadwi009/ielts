@@ -186,6 +186,22 @@ class Repository:
                 return None
             return random.choice(rows).payload
 
+    def serve_any_set(self, skill: str) -> dict | None:
+        """Return ONE random GeneratedSet.payload for the skill (any band), or None."""
+        with self._sf() as s:
+            rows = (
+                s.execute(
+                    select(GeneratedSet).where(
+                        GeneratedSet.skill == skill,
+                    )
+                )
+                .scalars()
+                .all()
+            )
+            if not rows:
+                return None
+            return random.choice(rows).payload
+
     # ── Programs & milestones ─────────────────────────────────────────────────
 
     def create_program(self, user_id: int, length_days: int) -> Program:
@@ -237,3 +253,22 @@ class Repository:
                 }
                 for r in rows
             ]
+
+    def get_latest_program(self, user_id: int) -> Program | None:
+        """Return the most recently created Program for the user, detached, or None."""
+        with self._sf() as s:
+            row = (
+                s.execute(
+                    select(Program)
+                    .where(Program.user_id == user_id)
+                    .order_by(Program.id.desc())
+                    .limit(1)
+                )
+                .scalars()
+                .first()
+            )
+            if row is None:
+                return None
+            s.refresh(row)
+            s.expunge(row)
+        return row

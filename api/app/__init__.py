@@ -41,10 +41,16 @@ def create_app(overrides=None):
     from .routes.onboarding import bp as onboarding_bp
     from .routes.placement import bp as placement_bp
     from .routes.skills import bp as skills_bp
+    from .routes.practice import bp as practice_bp
+    from .routes.program import bp as program_bp
+    from .routes.tips import bp as tips_bp
 
     app.register_blueprint(health_bp)
     app.register_blueprint(onboarding_bp)
     app.register_blueprint(placement_bp)
     app.register_blueprint(skills_bp)
+    app.register_blueprint(practice_bp)
+    app.register_blueprint(program_bp)
+    app.register_blueprint(tips_bp)
 
     return app
