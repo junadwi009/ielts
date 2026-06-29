@@ -1,23 +1,63 @@
 import { useEffect, useState } from "react";
 import { api } from "./lib/api/client";
+import { JourneyProvider, useJourney } from "./lib/journey";
+import { Welcome } from "./components/welcome/Welcome";
+import { Onboarding } from "./components/onboarding/Onboarding";
 
-type Status = "loading" | "ok" | "error";
+function Placeholder({ name }: { name: string }) {
+  return (
+    <div className="flex min-h-full items-center justify-center p-6">
+      <p className="text-[var(--color-muted)]">{name}</p>
+    </div>
+  );
+}
 
-export default function App() {
-  const [status, setStatus] = useState<Status>("loading");
+function Journey() {
+  const { step, go } = useJourney();
+  const [checking, setChecking] = useState(true);
 
   useEffect(() => {
+    let active = true;
     api
-      .health()
-      .then(() => setStatus("ok"))
-      .catch(() => setStatus("error"));
+      .skillLevels()
+      .then((levels) => {
+        if (!active) return;
+        if (Array.isArray(levels) && levels.length > 0) go("app");
+      })
+      .catch(() => {
+        /* stay at welcome on error */
+      })
+      .finally(() => {
+        if (active) setChecking(false);
+      });
+    return () => {
+      active = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  if (checking) {
+    return (
+      <div className="flex min-h-full items-center justify-center p-6">
+        <p className="text-[var(--color-muted)]">Loading…</p>
+      </div>
+    );
+  }
+
+  switch (step) {
+    case "welcome":
+      return <Welcome />;
+    case "onboarding":
+      return <Onboarding />;
+    default:
+      return <Placeholder name={step} />;
+  }
+}
+
+export default function App() {
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%" }}>
-      {status === "loading" && <p>Connecting…</p>}
-      {status === "ok" && <p>IELTS Coach — API: ok</p>}
-      {status === "error" && <p>IELTS Coach — API: unreachable</p>}
-    </div>
+    <JourneyProvider>
+      <Journey />
+    </JourneyProvider>
   );
 }
