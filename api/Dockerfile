@@ -2,6 +2,9 @@ FROM python:3.13-slim
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+# Bake the spaCy model into the image so inference is fully offline
+# Image size impact: ~+15 MB for en_core_web_sm
+RUN python -m spacy download en_core_web_sm
 COPY . .
 EXPOSE 5050
 # --timeout 120: live LLM scoring (strong model + long rubric) can exceed gunicorn's 30s default

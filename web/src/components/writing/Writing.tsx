@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { api } from "../../lib/api/client";
-import type { WritingEval } from "../../lib/types";
+import type { WritingEval, EssayMetrics } from "../../lib/types";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { Textarea } from "../ui/Textarea";
@@ -110,6 +110,77 @@ const CRIT_LABELS: Record<string, string> = {
   grammaticalRange: "Grammatical Range",
 };
 
+// ---------------------------------------------------------------------------
+// MetricsPanel sub-component
+// ---------------------------------------------------------------------------
+interface StatRowProps {
+  label: string;
+  value: string | number | null;
+}
+
+const StatRow: React.FC<StatRowProps> = ({ label, value }) => {
+  if (value === null || value === undefined) return null;
+  return (
+    <div className="flex items-baseline justify-between gap-2 py-1.5 border-b border-[var(--color-border)] last:border-0">
+      <span className="text-xs text-[var(--color-muted)] flex-shrink-0">{label}</span>
+      <span className="text-sm font-semibold tabular-nums text-[var(--color-text)] text-right">
+        {value}
+      </span>
+    </div>
+  );
+};
+
+const MetricsPanel: React.FC<{ metrics: EssayMetrics }> = ({ metrics }) => {
+  const { wordCount, sentenceCount, readability, lexicalDiversity, syntax } = metrics;
+  return (
+    <Card variant="stat">
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs font-medium text-[var(--color-muted)] uppercase tracking-wide">
+          Language Metrics
+        </p>
+        <Badge tone="neutral" className="text-[10px]">
+          supporting
+        </Badge>
+      </div>
+
+      <div className="flex flex-col">
+        <StatRow label="Word count" value={wordCount} />
+        <StatRow label="Sentence count" value={sentenceCount} />
+        <StatRow
+          label="Flesch-Kincaid Grade"
+          value={readability.fleschKincaidGrade}
+        />
+        <StatRow label="Gunning Fog" value={readability.gunningFog} />
+        <StatRow
+          label="Lexical diversity (MTLD)"
+          value={lexicalDiversity.mtld !== null ? lexicalDiversity.mtld : "—"}
+        />
+        <StatRow
+          label="Lexical diversity (TTR)"
+          value={lexicalDiversity.ttr}
+        />
+        {syntax && (
+          <>
+            <StatRow
+              label="Mean sentence length"
+              value={syntax.meanSentenceLength}
+            />
+            <StatRow
+              label="Mean dependency depth"
+              value={syntax.meanDependencyDepth}
+            />
+            <StatRow label="Long words (≥7 chars)" value={syntax.nLongWords} />
+          </>
+        )}
+      </div>
+
+      <p className="mt-3 text-[11px] text-[var(--color-muted)] leading-snug">
+        Supporting language metrics — they inform the examiner, not replace the band.
+      </p>
+    </Card>
+  );
+};
+
 const FeedbackView: React.FC<FeedbackViewProps> = ({ result, onRevise }) => (
   <div className="flex flex-col gap-4">
     {/* CEFR + band summary */}
@@ -165,6 +236,9 @@ const FeedbackView: React.FC<FeedbackViewProps> = ({ result, onRevise }) => (
         </p>
       </Card>
     )}
+
+    {/* Metrics panel */}
+    {result.metrics && <MetricsPanel metrics={result.metrics} />}
 
     <Button variant="secondary" onClick={onRevise}>
       ↩ Revise

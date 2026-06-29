@@ -173,6 +173,9 @@ SCORE_PROMPTS: dict[str, str] = {
     "writing": """\
 You are a fully trained IELTS examiner scoring an Academic Writing response.
 
+Deterministic language metrics (computed externally, for your reference only — do not let them override your judgement):
+{metricsSummary}
+
 Task type: {taskType}
 Band descriptors you must apply (IELTS Writing Band Descriptors, public version):
 

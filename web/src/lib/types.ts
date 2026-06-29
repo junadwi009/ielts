@@ -79,12 +79,32 @@ export interface QuizSet {
   stub?: boolean;
 }
 
+export interface EssayMetrics {
+  wordCount: number;
+  sentenceCount: number;
+  readability: {
+    fleschReadingEase: number;
+    fleschKincaidGrade: number;
+    gunningFog: number;
+  };
+  lexicalDiversity: {
+    ttr: number;
+    mtld: number | null;
+  };
+  syntax: {
+    meanSentenceLength: number | null;
+    meanDependencyDepth: number | null;
+    nLongWords: number | null;
+  } | null;
+}
+
 export interface WritingEval {
   bands: Record<string, number>;
   cefr: Cefr;
   corrections: unknown[];
   rewrite?: string;
   stub?: boolean;
+  metrics?: EssayMetrics;
 }
 
 export interface SpeakingEval {
