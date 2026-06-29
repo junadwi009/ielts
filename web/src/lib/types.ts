@@ -1,0 +1,100 @@
+export type Goal = "work" | "study_abroad" | "other";
+export type Cefr = "A1A2" | "B1" | "B2" | "C1" | "C2";
+export type Skill = "listening" | "reading" | "writing" | "speaking";
+
+export interface Health {
+  ok: boolean;
+  llmMode: string;
+  providerConfigured: boolean;
+  asrReady: boolean;
+}
+
+export interface OnboardingBody {
+  name: string;
+  goal: Goal;
+  targetBand: number;
+  skillTargets?: Record<string, unknown>;
+}
+
+export interface PlacementItem {
+  id: number;
+  skill: Skill;
+  bandTag: Cefr;
+  type: string;
+  payload: unknown;
+}
+
+export interface PlacementStart {
+  comboId: number;
+  sections: Record<string, unknown>;
+  targetMinutes: number;
+  items: PlacementItem[];
+}
+
+export interface PerSkill {
+  cefr: Cefr;
+  ieltsApprox?: number;
+  ielts?: number | null;
+  raw?: string;
+  confidence?: string;
+}
+
+export interface PlacementResult {
+  perSkill: Record<Skill, PerSkill>;
+  overallBand: number;
+  cefr: Cefr;
+  gapToTarget: number;
+}
+
+export interface Milestone {
+  idx: number;
+  dayTarget: number;
+  title: string;
+  targets: Record<string, Cefr>;
+}
+
+export interface ProgramResult {
+  program: { id: number; lengthDays: number; status: string };
+  milestones: Milestone[];
+}
+
+export interface SkillLevel {
+  skill: Skill;
+  band: Cefr;
+}
+
+export interface QuizQuestion {
+  stem: string;
+  options?: string[];
+  answer: string;
+  explanation?: string;
+}
+
+export interface QuizSet {
+  title?: string;
+  passage?: string;
+  transcript?: string;
+  questions: QuizQuestion[];
+  stub?: boolean;
+}
+
+export interface WritingEval {
+  bands: Record<string, number>;
+  cefr: Cefr;
+  corrections: unknown[];
+  rewrite?: string;
+  stub?: boolean;
+}
+
+export interface SpeakingEval {
+  bands: Record<string, number>;
+  cefr: Cefr;
+  feedback?: string;
+  modelAnswer?: string;
+  stub?: boolean;
+}
+
+export interface Tips {
+  title: string;
+  bullets: string[];
+}

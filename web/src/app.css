@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* NOTE: Real woff2 self-hosting for Inter and Lexend is a follow-up task.
+   Font-family stacks fall back to system-ui when woff2 files are absent.
+   Place woff2 files in src/assets/fonts/ and add @font-face declarations here. */
+
+@theme {
+  --color-primary-50: #EEF2FF;
+  --color-primary-600: #4F46E5;
+  --color-primary-700: #4338CA;
+  --color-accent-500: #14B8A6;
+  --color-accent-600: #0D9488;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+  --color-info: #2563EB;
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F1F5F9;
+  --color-border: #E2E8F0;
+  --color-text: #0F172A;
+  --color-text-2: #334155;
+  --color-muted: #64748B;
+  --color-cefr-a: #64748B;
+  --color-cefr-b1: #0EA5E9;
+  --color-cefr-b2: #14B8A6;
+  --color-cefr-c1: #6366F1;
+  --color-cefr-c2: #8B5CF6;
+  --font-ui: "Inter", system-ui, sans-serif;
+  --font-reading: "Lexend", "Inter", system-ui, sans-serif;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+/* Dark mode: a .dark class on <html> overrides neutrals */
+.dark {
+  --color-bg: #0B1120;
+  --color-surface: #111827;
+  --color-surface-2: #1E293B;
+  --color-border: #334155;
+  --color-text: #F1F5F9;
+  --color-text-2: #CBD5E1;
+  --color-muted: #94A3B8;
+}
+
+html, body, #root { height: 100%; }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-ui); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
