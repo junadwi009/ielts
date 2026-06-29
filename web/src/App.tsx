@@ -6,6 +6,8 @@ import { Onboarding } from "./components/onboarding/Onboarding";
 import { PlacementRunner } from "./components/placement/PlacementRunner";
 import { Generating } from "./components/placement/Generating";
 import { Results } from "./components/results/Results";
+import { Program } from "./components/program/Program";
+import { Milestones } from "./components/milestones/Milestones";
 
 function Placeholder({ name }: { name: string }) {
   return (
@@ -58,6 +60,10 @@ function Journey() {
       return <Generating />;
     case "results":
       return <Results />;
+    case "program":
+      return <Program />;
+    case "milestones":
+      return <Milestones />;
     default:
       return <Placeholder name={step} />;
   }
